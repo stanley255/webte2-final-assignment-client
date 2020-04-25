@@ -1,0 +1,21 @@
+.input {
+  border: none;
+  padding: 0.8em 2em;
+  border-radius: 4px;
+  color: var(--dark-blue);
+  background: rgb(209, 217, 225);
+  background: linear-gradient(
+    90deg,
+    rgba(209, 217, 225, 1) 0%,
+    rgba(226, 226, 224, 1) 100%
+  );
+  outline: none;
+}
+
+.input-with-icon {
+  padding-left: 3.5em;
+}
+
+.input-full {
+  width: 100%;
+}

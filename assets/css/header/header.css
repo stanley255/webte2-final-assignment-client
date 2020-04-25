@@ -6,7 +6,104 @@
 }
 
 .logo-title {
-  font-size: 20px;
+  font-size: 22px;
   color: var(--white);
   margin-left: 1em;
+  transition: color 0.1s ease-in-out;
+}
+
+.logo-title:hover {
+  color: var(--dark-blue);
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.1s ease-in-out;
+}
+
+.nav-link:hover {
+  color: var(--dark-blue);
+}
+
+.delimeter {
+  width: 8px;
+  height: 8px;
+  background-color: var(--dark-blue);
+  margin: 0 1em;
+  border-radius: 50%;
+}
+
+.nav-sub-menu {
+  display: none;
+  margin: 0;
+  padding: 0.6em 0;
+  position: absolute;
+  top: 32px;
+  right: 0;
+  list-style-type: none;
+  border: 1px solid var(--dark-blue);
+  border-radius: 6px;
+  background-color: var(--white);
+  z-index: 10;
+}
+
+.nav-sub-menu::before {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 0;
+  width: 100%;
+  height: 18px;
+}
+
+.nav-sub-menu:hover {
+  display: block;
+}
+
+.nav-sub-menu:hover + .nav-link {
+  color: var(--dark-blue);
+}
+
+.nav-sub-menu > li {
+  margin-bottom: 0.5em;
+}
+
+.nav-sub-menu > li:last-child {
+  margin: 0;
+}
+
+.nav-sub-menu > li > a {
+  font-size: 14px;
+  display: block;
+  padding: 0.6em 3em;
+  background-color: var(--fine-blue);
+  color: var(--dark-blue);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-sub-menu > li > a:hover {
+  background-color: rgba(209, 217, 225, 0.6);
+}
+
+.nav-link:hover ~ .nav-sub-menu {
+  display: block;
+}
+
+.language-container {
+  justify-content: flex-end;
+  padding: 2em 3em;
+  background-color: transparent;
+}
+
+.flag-container:first-child {
+  margin-right: 1em;
+  padding-right: 1em;
+  border-right: 2px solid var(--dark-blue);
 }

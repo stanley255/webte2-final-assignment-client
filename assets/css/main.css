@@ -34,8 +34,26 @@ a {
   text-decoration: none;
 }
 
+main {
+  margin: 0 4.5em;
+  padding: 2.5em;
+  background: rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(240, 240, 240, 1) 100%
+  );
+  border-radius: 8px 8px 0 0;
+}
+
 .container {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.container-full {
+  width: 100%;
 }

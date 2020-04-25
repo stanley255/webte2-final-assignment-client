@@ -2,3 +2,30 @@
   width: 30px;
   height: 30px;
 }
+
+.icon-small {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-big {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-rec {
+  width: 30px;
+  height: 20px;
+}
+
+.icon-abs {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.icon-input {
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 1em;
+}
