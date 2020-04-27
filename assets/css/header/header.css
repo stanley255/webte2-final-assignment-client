@@ -16,8 +16,13 @@
   color: var(--dark-blue);
 }
 
-.nav-item {
+.nav-link-container {
   position: relative;
+}
+
+.nav-link-container:hover > .nav-sub-menu,
+.nav-link-container:focus > .nav-sub-menu {
+  display: block;
 }
 
 .nav-link {
@@ -27,7 +32,8 @@
   transition: color 0.1s ease-in-out;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link:focus {
   color: var(--dark-blue);
 }
 
@@ -42,36 +48,36 @@
 .nav-sub-menu {
   display: none;
   margin: 0;
-  padding: 0.6em 0;
+  padding: 0;
   position: absolute;
-  top: 32px;
-  right: 0;
+  top: 3em;
+  left: 50%;
   list-style-type: none;
-  border: 1px solid var(--dark-blue);
-  border-radius: 6px;
-  background-color: var(--white);
+  background-color: var(--off-blue);
   z-index: 10;
+  transform: translateX(-50%);
 }
 
 .nav-sub-menu::before {
   content: '';
   position: absolute;
-  top: -18px;
+  top: calc(-3em + 16px);
   left: 0;
   width: 100%;
-  height: 18px;
+  height: calc(3em - 16px);
 }
 
 .nav-sub-menu:hover {
   display: block;
 }
 
-.nav-sub-menu:hover + .nav-link {
+.nav-sub-menu:hover + .nav-link,
+.nav-sub-menu:focus + .nav-link {
   color: var(--dark-blue);
 }
 
 .nav-sub-menu > li {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.2em;
 }
 
 .nav-sub-menu > li:last-child {
@@ -81,19 +87,18 @@
 .nav-sub-menu > li > a {
   font-size: 14px;
   display: block;
-  padding: 0.6em 3em;
-  background-color: var(--fine-blue);
-  color: var(--dark-blue);
+  padding: 0.6em 4em;
+  background-color: var(--dark-blue);
+  color: var(--white);
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+  z-index: 10;
 }
 
-.nav-sub-menu > li > a:hover {
-  background-color: rgba(209, 217, 225, 0.6);
-}
-
-.nav-link:hover ~ .nav-sub-menu {
-  display: block;
+.nav-sub-menu > li > a:hover,
+.nav-sub-menu > li > a:focus {
+  background-color: var(--off-blue);
 }
 
 .language-container {
@@ -106,4 +111,14 @@
   margin-right: 1em;
   padding-right: 1em;
   border-right: 2px solid var(--dark-blue);
+}
+
+@media only screen and (max-width: 900px) {
+  .header-container {
+    padding: 1.5em 2em;
+  }
+
+  .language-container {
+    padding: 2em 2em;
+  }
 }

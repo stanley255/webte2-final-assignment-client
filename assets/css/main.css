@@ -20,6 +20,24 @@ html {
   box-sizing: inherit;
 }
 
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  color: var(--red);
+}
+
+.warning {
+  color: var(--yellow);
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -56,4 +74,16 @@ main {
 
 .container-full {
   width: 100%;
+}
+
+.float {
+  float: left;
+  min-width: 1px;
+}
+
+@media only screen and (max-width: 900px) {
+  main {
+    margin: 0 2em;
+    padding: 2em 1.5em;
+  }
 }

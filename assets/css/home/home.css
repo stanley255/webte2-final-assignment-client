@@ -23,7 +23,25 @@
   color: var(--white);
   background-color: var(--dark-blue);
   padding: 1.5em;
-  resize: none;
   border: none;
   border-radius: 4px;
+  overflow-y: auto;
+}
+
+.command-init-txt {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: var(--off-blue);
+}
+
+.line {
+  margin-bottom: 0.2em;
+}
+
+.command-desc-txt {
+  display: inline-block;
+}
+
+.command-content {
+  outline: none;
 }

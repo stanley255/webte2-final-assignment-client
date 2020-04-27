@@ -1,5 +1,7 @@
 <?php 
 
+  session_start();
+
   define('__ROOT__', dirname(__FILE__));
   define('__SCRIPT_NAME__', basename($_SERVER['SCRIPT_FILENAME']));
 
@@ -25,7 +27,10 @@
 
   <!-- JS -->
   <script src="./assets/js/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
   <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/helpers/cookies.js" type="module"></script>
+  <script defer src="./assets/js/command-line.js" type="module"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/normalize.css">
@@ -50,22 +55,24 @@
         <span class="delimeter"></span>
       </div>
       <div class="container nav-item">
-        <a class="nav-link">Projekty</a>
+        <div class="nav-link-container">
+          <ul class="nav-sub-menu">
+            <li>
+              <a>Kyvadlo</a>
+            </li>
+            <li>
+              <a>Gulička</a>
+            </li>
+            <li>
+              <a>Tlmenie</a>
+            </li>
+            <li>
+              <a>Lietadlo</a>
+            </li>
+          </ul>
+          <a class="nav-link">Projekty</a>
+        </div>
         <span class="delimeter"></span>
-        <ul class="nav-sub-menu">
-          <li>
-            <a>Kyvadlo</a>
-          </li>
-          <li>
-            <a>Gulička</a>
-          </li>
-          <li>
-            <a>Tlmenie</a>
-          </li>
-          <li>
-            <a>Lietadlo</a>
-          </li>
-        </ul>
       </div>
       <div class="container nav-item">
         <a class="nav-link">Octave API</a>
@@ -88,9 +95,17 @@
     <div class="container content-container">
       <div class="container content-title">
         <img class="icon icon-big" src="./assets/icons/command-line.svg" alt="Icon" />
-        <h3>Napíš svoj prvý príkaz …</h3>
+        <h3>Napíš svoj prvý príkaz ...</h3>
       </div>
-      <textarea class="command-line" id="command-line"></textarea>
+      <div class="command-line" id="command-line">
+        <div class="command-init-txt" id="command-init-txt"></div>
+        <div class="line clearfix hidden" id="line-template">
+          <strong class="command-desc float"><span class="command-desc-txt"></span>&nbsp;</strong><div class="command-content float" contenteditable="true" tabindex="0"></div>
+        </div>
+        <div class="line hidden" id="result-template">
+          <span class="command-desc-txt"></span>
+        </div>
+      </div>
     </div>
     <div class="container content-container">
       <div class="container content-title">
