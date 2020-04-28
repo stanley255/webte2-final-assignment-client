@@ -107,10 +107,11 @@
   background-color: transparent;
 }
 
-.flag-container:first-child {
-  margin-right: 1em;
-  padding-right: 1em;
-  border-right: 2px solid var(--dark-blue);
+.lang-delimeter {
+  display: inline-block;
+  height: 20px;
+  margin: 0 1em;
+  border: 1px solid var(--dark-blue);
 }
 
 @media only screen and (max-width: 900px) {

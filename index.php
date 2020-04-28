@@ -27,13 +27,15 @@
 
   <!-- JS -->
   <script src="./assets/js/jquery.min.js"></script>
+  <script src="./assets/js/chart.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-  <script src="./assets/js/main.js"></script>
-  <script src="./assets/js/helpers/cookies.js" type="module"></script>
   <script defer src="./assets/js/command-line.js" type="module"></script>
+  <script defer src="./assets/js/stats.js" type="module"></script>
+  <script defer src="./assets/js/main.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/normalize.css">
+  <link rel="stylesheet" href="./assets/css/chart.min.css">
   <link rel="stylesheet" href="./assets/css/main.css">  
   <link rel="stylesheet" href="./assets/css/icon.css">  
   <link rel="stylesheet" href="./assets/css/input.css">  
@@ -85,10 +87,11 @@
   </header>
   <div class="container language-container">
     <div class="flag-container">
-      <img class="icon icon-rec" src="./assets/icons/slovakia-flag.svg" alt="SK" />
+      <img class="icon icon-rec" src="./assets/icons/slovakia-flag.svg" alt="SK" title="SK" />
     </div>
+    <div class="lang-delimeter"></div>
     <div class="flag-container">
-      <img class="icon icon-rec" src="./assets/icons/united-kingdom-flag.svg" alt="SK" />
+      <img class="icon icon-rec" src="./assets/icons/united-kingdom-flag.svg" alt="EN" title="EN" />
     </div>
   </div>
   <main>
@@ -112,9 +115,18 @@
         <img class="icon icon-big" src="./assets/icons/statistics.svg" alt="Icon" />
         <h3>Štatistiky použitia našich projektov</h3>
       </div>
-      <div class="container container-full">
-        <img class="icon icon-small icon-abs icon-input" src="./assets/icons/send.svg" alt="Icon" />
-        <input type="email" class="input input-full input-with-icon" placeholder="example@example.com" />
+      <div id="stats-not-found" class="container container-full stats-not-found hidden">Neboli nájdené žiadne štatistické dáta</div>
+      <div id="stats" class="container-full">
+        <div class="container container-full">
+          <img class="icon icon-small icon-abs icon-input" src="./assets/icons/send.svg" alt="Icon" />
+          <input type="email" class="input input-full input-with-icon" placeholder="example@example.com" />
+        </div>
+        <div class="container stats-container">
+          <ul id="chart-legend" class="legend-list"></ul>
+          <div>
+            <canvas class="stats-chart" id="stats-chart"></canvas>
+          </div>
+        </div>
       </div>
     </div>
   </main>

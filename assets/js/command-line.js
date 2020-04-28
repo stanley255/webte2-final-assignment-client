@@ -1,31 +1,6 @@
-import { getCookie } from './helpers/cookies.js';
+import { sendCommand } from './helpers/ajax.js';
 
 let currentLine = 0;
-
-const ajaxRequest = async (type, url, data = {}) => {
-  return $.ajax({
-    type,
-    url,
-    dataType: 'json',
-    data,
-  });
-};
-
-const sendCommand = async (command) => {
-  const url = 'https://wt43.fei.stuba.sk:4443/api/console';
-  const session = getCookie('PHPSESSID');
-  const data = {
-    session,
-    command,
-  };
-
-  try {
-    const response = await ajaxRequest('POST', url, data);
-    return response;
-  } catch (error) {
-    return null;
-  }
-};
 
 const focusLine = () => {
   $(`#line-${currentLine}`).find('.command-content').focus();
@@ -102,10 +77,14 @@ const onCmdRun = async (e) => {
     appendNewLine();
   } else {
     disableCurrentLine();
-    const { content } = await sendCommand(value);
-    content.forEach((text) => {
-      appendNewResult(text);
-    });
+
+    const result = await sendCommand(value, {});
+    if (result.content && Array.isArray(result.content)) {
+      result.content.forEach((text) => {
+        appendNewResult(text);
+      });
+    }
+
     appendNewLine();
   }
 };

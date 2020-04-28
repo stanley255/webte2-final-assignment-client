@@ -45,3 +45,59 @@
 .command-content {
   outline: none;
 }
+
+.stats-not-found {
+  justify-content: center;
+  font-weight: bold;
+  padding: 1em 0;
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 4px;
+}
+
+.stats-container {
+  margin: 2em auto 0 auto;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.legend-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.legend-list > li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.legend-list > li:last-child {
+  margin: 0;
+}
+
+.legend-list > li > div {
+  height: 20px !important;
+  width: 20px !important;
+  border-radius: 50%;
+  margin-right: 1em;
+}
+
+.legend-list > li > span {
+  font-weight: bold;
+}
+
+.stats-chart {
+  width: 500px;
+}
+
+@media only screen and (max-width: 900px) {
+  .stats-container {
+    flex-direction: column;
+  }
+
+  .legend-list {
+    margin-bottom: 2em;
+  }
+}
