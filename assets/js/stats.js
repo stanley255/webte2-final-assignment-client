@@ -1,17 +1,19 @@
 import { getStats } from './helpers/ajax.js';
 import { createGraph } from './helpers/graph.js';
+import { getCurrentLanguage } from './helpers/language.js';
 import { experimentColors, translate, revert } from './helpers/experiments.js';
 
-const parseData = (data) =>
+const parseData = (data, language) =>
   data.reduce((reducer, { experiment, count }) => {
-    reducer[translate('sk', experiment)] = Number(count);
+    reducer[translate(language, experiment)] = Number(count);
     return reducer;
   }, {});
 
 const initData = async () => {
+  const language = getCurrentLanguage();
   const response = await getStats();
 
-  if (response) return parseData(response);
+  if (response) return parseData(response, language);
   return null;
 };
 

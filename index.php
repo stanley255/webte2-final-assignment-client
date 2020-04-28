@@ -7,6 +7,12 @@
 
   require_once(__ROOT__ . '/helpers/path.php');
   require_once(__ROOT__ . '/helpers/string.php');
+  require_once(__ROOT__ . '/language/lang.php');
+
+  // LANGUAGE SET UP
+  $lang = get_current_language();
+  $lang_path = realpath(__ROOT__ . '/language/lang.' . $lang . '.php');
+  require_once($lang_path);
 
 ?>
 
@@ -31,7 +37,7 @@
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
   <script defer src="./assets/js/command-line.js" type="module"></script>
   <script defer src="./assets/js/stats.js" type="module"></script>
-  <script defer src="./assets/js/main.js"></script>
+  <script defer src="./assets/js/main.js" type="module"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/normalize.css">
@@ -53,52 +59,56 @@
     </div>
     <nav class="container">
       <div class="container nav-item">
-        <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . __SCRIPT_NAME__; ?>" class="nav-link">Domov</a>
+        <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . __SCRIPT_NAME__; ?>" class="nav-link"><?php echo $language['HEADER_MENU_1']; ?></a>
         <span class="delimeter"></span>
       </div>
       <div class="container nav-item">
         <div class="nav-link-container">
           <ul class="nav-sub-menu">
             <li>
-              <a>Kyvadlo</a>
+              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'pendulum.php'; ?>"><?php echo $language['HEADER_SUB_MENU_1'] ?></a>
             </li>
             <li>
-              <a>Gulička</a>
+              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'ball.php'; ?>"><?php echo $language['HEADER_SUB_MENU_2'] ?></a>
             </li>
             <li>
-              <a>Tlmenie</a>
+              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'absorber.php'; ?>"><?php echo $language['HEADER_SUB_MENU_3'] ?></a>
             </li>
             <li>
-              <a>Lietadlo</a>
+              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'aircraft.php'; ?>"><?php echo $language['HEADER_SUB_MENU_4'] ?></a>
             </li>
           </ul>
-          <a class="nav-link">Projekty</a>
+          <a class="nav-link"><?php echo $language['HEADER_MENU_2']; ?></a>
         </div>
         <span class="delimeter"></span>
       </div>
       <div class="container nav-item">
-        <a class="nav-link">Octave API</a>
+        <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'octave-api.php'; ?>" class="nav-link"><?php echo $language['HEADER_MENU_3']; ?></a>
         <span class="delimeter"></span>
       </div>
       <div class="container nav-item">
-        <a class="nav-link">Kontakt</a>
+        <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'contact.php'; ?>" class="nav-link"><?php echo $language['HEADER_MENU_4']; ?></a>
       </div>
     </nav>
   </header>
-  <div class="container language-container">
-    <div class="flag-container">
-      <img class="icon icon-rec" src="./assets/icons/slovakia-flag.svg" alt="SK" title="SK" />
+  <div class="container flags-container">
+    <div class="flag-container <?php echo ($lang === 'sk' ? 'flag-active': ''); ?>">
+      <a class="language-button" href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . __SCRIPT_NAME__; ?>" title="sk">
+        <img id="<?php echo ($lang === 'sk' ? 'lang-active': ''); ?>" class="icon icon-rec" src="./assets/icons/slovakia-flag.svg" alt="sk" title="sk" />
+      </a>
     </div>
-    <div class="lang-delimeter"></div>
-    <div class="flag-container">
-      <img class="icon icon-rec" src="./assets/icons/united-kingdom-flag.svg" alt="EN" title="EN" />
+    <div class="flag-delimeter"></div>
+    <div class="flag-container <?php echo ($lang === 'en' ? 'flag-active': ''); ?>">
+      <a class="language-button" href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . __SCRIPT_NAME__; ?>" title="en">
+        <img id="<?php echo ($lang === 'en' ? 'lang-active': ''); ?>" class="icon icon-flag" src="./assets/icons/united-kingdom-flag.svg" alt="en" title="en" />
+      </a>
     </div>
   </div>
   <main>
     <div class="container content-container">
       <div class="container content-title">
         <img class="icon icon-big" src="./assets/icons/command-line.svg" alt="Icon" />
-        <h3>Napíš svoj prvý príkaz ...</h3>
+        <h3><?php echo $language['HOME_PAGE_TITLE_1']; ?></h3>
       </div>
       <div class="command-line" id="command-line">
         <div class="command-init-txt" id="command-init-txt"></div>
@@ -113,9 +123,9 @@
     <div class="container content-container">
       <div class="container content-title">
         <img class="icon icon-big" src="./assets/icons/statistics.svg" alt="Icon" />
-        <h3>Štatistiky použitia našich projektov</h3>
+        <h3><?php echo $language['HOME_PAGE_TITLE_2']; ?></h3>
       </div>
-      <div id="stats-not-found" class="container container-full stats-not-found hidden">Neboli nájdené žiadne štatistické dáta</div>
+      <div id="stats-not-found" class="container container-full stats-not-found hidden"><?php echo $language['HOME_PAGE_MESSAGE_1']; ?></div>
       <div id="stats" class="container-full">
         <div class="container container-full">
           <img class="icon icon-small icon-abs icon-input" src="./assets/icons/send.svg" alt="Icon" />

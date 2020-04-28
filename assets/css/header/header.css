@@ -87,6 +87,7 @@
 .nav-sub-menu > li > a {
   font-size: 14px;
   display: block;
+  text-align: center;
   padding: 0.6em 4em;
   background-color: var(--dark-blue);
   color: var(--white);
@@ -101,13 +102,26 @@
   background-color: var(--off-blue);
 }
 
-.language-container {
+.flags-container {
   justify-content: flex-end;
   padding: 2em 3em;
   background-color: transparent;
 }
 
-.lang-delimeter {
+.flag-container {
+  opacity: 0.6;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.flag-container.flag-active {
+  opacity: 1;
+}
+
+.flag-container:hover {
+  opacity: 1;
+}
+
+.flag-delimeter {
   display: inline-block;
   height: 20px;
   margin: 0 1em;
