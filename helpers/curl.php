@@ -1,18 +1,19 @@
 <?php 
 
-  function curl($url) {
+  function curl_request($url, $headers = array()) {
 
-    $ch = curl_init($url);
+    $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url); 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_VERBOSE, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
 
     $json = curl_exec($ch);
-    if (curl_error($ch)) {
+    if (!$json) {
       $json = "{}";
     }
+    echo 'Curl error: ' . curl_error($ch);
+    print_r(curl_getinfo($ch));
     curl_close($ch);
 
     return json_decode($json, true);

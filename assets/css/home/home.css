@@ -14,6 +14,9 @@
 
 .content-title > h3 {
   margin: 0 1em;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 
 .command-line {

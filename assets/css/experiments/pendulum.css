@@ -1,0 +1,24 @@
+.container-title {
+  border-bottom: 3px dashed var(--fine-blue);
+}
+
+.content-container {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2em;
+}
+
+.content-title {
+  padding-bottom: 2em;
+}
+
+.content-title > h1 {
+  margin: 0 1em;
+}
+
+.content-title > h3 {
+  margin: 0 1em;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}

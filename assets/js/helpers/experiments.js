@@ -20,7 +20,7 @@ export const dictionary = {
   },
   inversePendulum: {
     sk: 'Prevrátené kyvadlo',
-    en: 'Iverse pendulum',
+    en: 'Inverse pendulum',
   },
 };
 

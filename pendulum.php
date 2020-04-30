@@ -34,10 +34,8 @@
   <!-- JS -->
   <script src="./assets/js/jquery.min.js"></script>
   <script src="./assets/js/chart.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-  <script defer src="./assets/js/command-line.js" type="module"></script>
-  <script defer src="./assets/js/stats.js" type="module"></script>
   <script defer src="./assets/js/main.js" type="module"></script>
+  <script defer src="./assets/js/experiments/experiments.js" type="module"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/normalize.css">
@@ -46,7 +44,7 @@
   <link rel="stylesheet" href="./assets/css/icon.css">  
   <link rel="stylesheet" href="./assets/css/input.css">  
   <link rel="stylesheet" href="./assets/css/header/header.css">  
-  <link rel="stylesheet" href="./assets/css/home/home.css">  
+  <link rel="stylesheet" href="./assets/css/experiments/pendulum.css">  
 
   <!-- TITLE -->
   <title>Webte2Final</title>
@@ -55,18 +53,18 @@
   <header class="container header-container">
     <div class="container">
       <img src="./assets/icons/logo.svg" alt="Logo" class="icon" />
-      <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . __SCRIPT_NAME__; ?>" class="logo-title"><strong>Webte2</strong>Final</a>
+      <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'index.php'; ?>" class="logo-title"><strong>Webte2</strong>Final</a>
     </div>
     <nav class="container">
       <div class="container nav-item">
-        <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . __SCRIPT_NAME__; ?>" class="nav-link link-active"><?php echo $language['HEADER_MENU_1']; ?></a>
+        <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'index.php'; ?>" class="nav-link"><?php echo $language['HEADER_MENU_1']; ?></a>
         <span class="delimeter"></span>
       </div>
       <div class="container nav-item">
         <div class="nav-link-container">
           <ul class="nav-sub-menu">
             <li>
-              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'pendulum.php'; ?>"><?php echo $language['HEADER_SUB_MENU_1'] ?></a>
+              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . __SCRIPT_NAME__; ?>"><?php echo $language['HEADER_SUB_MENU_1'] ?></a>
             </li>
             <li>
               <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'ball.php'; ?>"><?php echo $language['HEADER_SUB_MENU_2'] ?></a>
@@ -78,7 +76,7 @@
               <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'aircraft.php'; ?>"><?php echo $language['HEADER_SUB_MENU_4'] ?></a>
             </li>
           </ul>
-          <span class="nav-link"><?php echo $language['HEADER_MENU_2']; ?></span>
+          <span class="nav-link link-active"><?php echo $language['HEADER_MENU_2']; ?></span>
         </div>
         <span class="delimeter"></span>
       </div>
@@ -105,37 +103,22 @@
     </div>
   </div>
   <main>
-    <div class="container content-container">
+    <div class="container content-container container-title">
       <div class="container content-title">
-        <img class="icon icon-big" src="./assets/icons/command-line.svg" alt="Icon" />
-        <h3><?php echo $language['HOME_PAGE_TITLE_1']; ?></h3>
-      </div>
-      <div class="command-line" id="command-line">
-        <div class="command-init-txt" id="command-init-txt"></div>
-        <div class="line clearfix hidden" id="line-template">
-          <strong class="command-desc float"><span class="command-desc-txt"></span>&nbsp;</strong><div class="command-content float" contenteditable="true" tabindex="0"></div>
-        </div>
-        <div class="line hidden" id="result-template">
-          <span class="command-desc-txt"></span>
-        </div>
+        <img class="icon icon-big" src="./assets/icons/pendulum.svg" alt="Icon" />
+        <h1><?php echo $language['PENDULUM']; ?></h1>
       </div>
     </div>
     <div class="container content-container">
       <div class="container content-title">
-        <img class="icon icon-big" src="./assets/icons/statistics.svg" alt="Icon" />
-        <h3><?php echo $language['HOME_PAGE_TITLE_2']; ?></h3>
+        <img class="icon icon-big" src="./assets/icons/slider.svg" alt="Icon" />
+        <h3><?php echo $language['PENDULUM_PAGE_TITLE_1']; ?></h3>
       </div>
-      <div id="stats-not-found" class="container container-full stats-not-found hidden"><?php echo $language['HOME_PAGE_MESSAGE_1']; ?></div>
-      <div id="stats" class="container-full">
-        <div class="container container-full">
-          <img class="icon icon-small icon-abs icon-input" src="./assets/icons/send.svg" alt="Icon" />
-          <input type="email" class="input input-full input-with-icon" placeholder="example@example.com" />
-        </div>
-        <div class="container stats-container">
-          <ul id="chart-legend" class="legend-list"></ul>
-          <div>
-            <canvas class="stats-chart" id="stats-chart"></canvas>
-          </div>
+      <div class="container container-full">
+        <input id="input-range" class="input input-full input-range" type="range" min="0" max="1" step="0.01" value="0" />
+        <div class="input-container">
+          <span class="arrow-left"></span>
+          <input type="text" id="input-range-label" class="input-range-label" value="0" />
         </div>
       </div>
     </div>
