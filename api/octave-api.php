@@ -13,7 +13,7 @@
     http_response_code(200);
   
     echo json_encode(
-      array('api-key' => $GLOBALS['octave_api_key']),
+      array('key' => $GLOBALS['octave_api_key']),
       JSON_UNESCAPED_UNICODE
     );
 
