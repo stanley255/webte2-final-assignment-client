@@ -6,10 +6,6 @@ export const experimentColors = {
 };
 
 export const dictionary = {
-  aircraftTilt: {
-    sk: 'Náklon lietadla',
-    en: 'Aircraft titl',
-  },
   ballOnStick: {
     sk: 'Gulička na tyči',
     en: 'Ball on stick',
@@ -21,6 +17,10 @@ export const dictionary = {
   inversePendulum: {
     sk: 'Prevrátené kyvadlo',
     en: 'Inverse pendulum',
+  },
+  aircraftTilt: {
+    sk: 'Náklon lietadla',
+    en: 'Aircraft pitch',
   },
 };
 

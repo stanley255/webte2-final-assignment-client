@@ -7,6 +7,7 @@
 
   require_once(__ROOT__ . '/helpers/path.php');
   require_once(__ROOT__ . '/helpers/string.php');
+  require_once(__ROOT__ . '/helpers/content.php');
   require_once(__ROOT__ . '/language/lang.php');
 
   // LANGUAGE SET UP
@@ -45,6 +46,7 @@
   <link rel="stylesheet" href="./assets/css/main.css">  
   <link rel="stylesheet" href="./assets/css/icon.css">  
   <link rel="stylesheet" href="./assets/css/input.css">  
+  <link rel="stylesheet" href="./assets/css/button.css">  
   <link rel="stylesheet" href="./assets/css/header/header.css">  
   <link rel="stylesheet" href="./assets/css/home/home.css">  
 
@@ -65,20 +67,15 @@
       <div class="container nav-item">
         <div class="nav-link-container">
           <ul class="nav-sub-menu">
-            <li>
-              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'pendulum.php'; ?>"><?php echo $language['HEADER_SUB_MENU_1'] ?></a>
-            </li>
-            <li>
-              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'ball.php'; ?>"><?php echo $language['HEADER_SUB_MENU_2'] ?></a>
-            </li>
-            <li>
-              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'absorber.php'; ?>"><?php echo $language['HEADER_SUB_MENU_3'] ?></a>
-            </li>
-            <li>
-              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'aircraft.php'; ?>"><?php echo $language['HEADER_SUB_MENU_4'] ?></a>
-            </li>
+            <?php 
+              foreach (get_all_experiments() as $key => $value) {
+                echo '<li>';
+                echo '<a href="' . get_root_url() . DIRECTORY_SEPARATOR . 'experiments.php?init=' . $value . '">' . $language['HEADER_SUB_MENU'][$value] . '</a>';
+                echo '</li>';
+              }
+            ?>
           </ul>
-          <span class="nav-link"><?php echo $language['HEADER_MENU_2']; ?></span>
+          <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'experiments.php'; ?>" class="nav-link"><?php echo $language['HEADER_MENU_2']; ?></a>
         </div>
         <span class="delimeter"></span>
       </div>
@@ -127,10 +124,13 @@
       </div>
       <div id="stats-not-found" class="container container-full stats-not-found hidden"><?php echo $language['HOME_PAGE_MESSAGE_1']; ?></div>
       <div id="stats" class="container-full">
-        <div class="container container-full">
-          <img class="icon icon-small icon-abs icon-input" src="./assets/icons/send.svg" alt="Icon" />
-          <input type="email" class="input input-full input-with-icon" placeholder="example@example.com" />
-        </div>
+        <form id="form-email" class="container container-full">
+          <div class="container container-full">
+            <img class="icon icon-small icon-abs icon-input" src="./assets/icons/send.svg" alt="Icon" />
+            <input id="input-email" autocomplete="off" type="email" class="input input-full input-with-icon" placeholder="example@example.com" />
+          </div>
+          <button type="submit" class="button button-left-space"><?php echo $language['HOME_PAGE_BUTTON_1']; ?></button>
+        </form>
         <div class="container stats-container">
           <ul id="chart-legend" class="legend-list"></ul>
           <div>

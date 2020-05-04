@@ -1,7 +1,12 @@
-import { getStats } from './helpers/ajax.js';
+import { getStats, sendStatsToEmail } from './helpers/ajax.js';
 import { createGraph } from './helpers/graph.js';
 import { getCurrentLanguage } from './helpers/language.js';
 import { experimentColors, translate, revert } from './helpers/experiments.js';
+
+const validateEmail = (email) => {
+  var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return regex.test(email);
+};
 
 const parseData = (data, language) =>
   data.reduce((reducer, { experiment, count }) => {
@@ -35,7 +40,26 @@ const initLegend = (data) =>
     $(list).append(item);
   });
 
-const initStats = async () => {
+const initEmailStats = () => {
+  $('#form-email').on('submit', async (e) => {
+    e.preventDefault();
+
+    const sendTo = $('#input-email').val();
+    if (!validateEmail(sendTo)) {
+      $('#input-email').removeClass('border-error');
+      $('#input-email').addClass('border-error');
+      return;
+    }
+
+    $('#input-email').removeClass('border-error');
+    const fetchedData = await initData();
+
+    sendStatsToEmail(sendTo, fetchedData);
+    $('#input-email').val('');
+  });
+};
+
+const initGraphStats = async () => {
   const fetchedData = await initData();
   if (!fetchedData || Object.keys(fetchedData).length === 0) {
     $('#stats').addClass('hidden');
@@ -74,4 +98,5 @@ const initStats = async () => {
   initLegend(fetchedData);
 };
 
-initStats();
+initEmailStats();
+initGraphStats();

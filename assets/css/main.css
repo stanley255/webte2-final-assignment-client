@@ -77,16 +77,32 @@ a {
   color: var(--red);
 }
 
+.border-error {
+  border: 1px solid var(--red) !important;
+}
+
 .warning {
   color: var(--yellow);
+}
+
+.border-warning {
+  border: 1px solid var(--warning) !important;
 }
 
 .info {
   color: var(--light-blue);
 }
 
+.border-info {
+  border: 1px solid var(--light-blue) !important;
+}
+
 .primary {
   color: var(--dark-blue);
+}
+
+.border-primary {
+  border: 1px solid var(--dark-blue) !important;
 }
 
 .red {

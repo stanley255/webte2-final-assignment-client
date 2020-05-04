@@ -12,8 +12,6 @@
     if (!$json) {
       $json = "{}";
     }
-    echo 'Curl error: ' . curl_error($ch);
-    print_r(curl_getinfo($ch));
     curl_close($ch);
 
     return json_decode($json, true);

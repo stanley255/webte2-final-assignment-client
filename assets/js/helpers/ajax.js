@@ -42,8 +42,23 @@ export const getStats = async (returnObj = null) => {
   }
 };
 
+export const sendStatsToEmail = async (sendTo, stats, returnObj = null) => {
+  const url = `http://147.175.121.210:8057/xzadanie-finalx/api/stats.php`;
+  const data = {
+    content: stats,
+    email_to: sendTo,
+  };
+
+  try {
+    const response = await ajaxRequest('POST', url, data);
+    return response;
+  } catch (error) {
+    return returnObj;
+  }
+};
+
 export const getApiKey = async (name, returnObj = null) => {
-  const url = `http://147.175.121.210:8057/xzadanie-finalx/api/octave-api.php?key=${name}`;
+  const url = `http://147.175.121.210:8057/xzadanie-finalx/api/api-keys.php?key=${name}`;
 
   try {
     const response = await ajaxRequest('GET', url);

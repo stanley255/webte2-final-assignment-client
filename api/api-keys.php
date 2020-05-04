@@ -4,7 +4,6 @@
   define('__SCRIPT_NAME__', basename($_SERVER['SCRIPT_FILENAME']));
 
   require_once(__ROOT__ . '/config.php');
-  require_once(__ROOT__ . '/helpers/curl.php');
 
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json; charset=utf8');

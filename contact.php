@@ -7,6 +7,7 @@
 
   require_once(__ROOT__ . '/helpers/path.php');
   require_once(__ROOT__ . '/helpers/string.php');
+  require_once(__ROOT__ . '/helpers/content.php');
   require_once(__ROOT__ . '/language/lang.php');
 
   // LANGUAGE SET UP
@@ -60,20 +61,15 @@
       <div class="container nav-item">
         <div class="nav-link-container">
           <ul class="nav-sub-menu">
-            <li>
-              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'pendulum.php'; ?>"><?php echo $language['HEADER_SUB_MENU_1'] ?></a>
-            </li>
-            <li>
-              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'ball.php'; ?>"><?php echo $language['HEADER_SUB_MENU_2'] ?></a>
-            </li>
-            <li>
-              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'absorber.php'; ?>"><?php echo $language['HEADER_SUB_MENU_3'] ?></a>
-            </li>
-            <li>
-              <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'aircraft.php'; ?>"><?php echo $language['HEADER_SUB_MENU_4'] ?></a>
-            </li>
+            <?php 
+              foreach (get_all_experiments() as $key => $value) {
+                echo '<li>';
+                echo '<a href="' . get_root_url() . DIRECTORY_SEPARATOR . 'experiments.php?init=' . $value . '">' . $language['HEADER_SUB_MENU'][$value] . '</a>';
+                echo '</li>';
+              }
+            ?>
           </ul>
-          <span class="nav-link"><?php echo $language['HEADER_MENU_2']; ?></span>
+          <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'experiments.php'; ?>" class="nav-link"><?php echo $language['HEADER_MENU_2']; ?></a>
         </div>
         <span class="delimeter"></span>
       </div>
