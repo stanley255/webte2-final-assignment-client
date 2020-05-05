@@ -68,7 +68,7 @@
         <div class="nav-link-container">
           <ul class="nav-sub-menu">
             <?php 
-              foreach (get_all_experiments() as $key => $value) {
+              foreach (get_experiments_names() as $key => $value) {
                 echo '<li>';
                 echo '<a href="' . get_root_url() . DIRECTORY_SEPARATOR . 'experiments.php?init=' . $value . '">' . $language['HEADER_SUB_MENU'][$value] . '</a>';
                 echo '</li>';
