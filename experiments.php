@@ -17,8 +17,8 @@
 
   // INIT EXPERIMENT
   $experiments = get_all_experiments();
-  $experiment = $experiments[0];
-  if (isset($_GET['init']) && in_array($_GET['init'], $experiments)) {
+  $experiment = $experiments[0]->name;
+  if (isset($_GET['init']) && in_array($_GET['init'], get_experiments_names())) {
     $experiment = $_GET['init'];
   }
 
@@ -44,6 +44,13 @@
   <script src="./assets/js/chart.min.js"></script>
   <script defer src="./assets/js/main.js" type="module"></script>
   <script defer src="./assets/js/experiments.js" type="module"></script>
+
+  <script defer src="./assets/js/experiments/experiment-constants.js"></script>
+  <script defer src="./assets/js/experiments/experiment.js"></script>
+  <script defer src="./assets/js/experiments/plane.js"></script>
+  <script defer src="./assets/js/experiments/pendulum.js"></script>
+  <script defer src="./assets/js/experiments/beam-and-ball.js"></script>
+  <script defer src="./assets/js/experiments/car.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/normalize.css">
@@ -74,7 +81,7 @@
             <?php 
               foreach ($experiments as $key => $value) {
                 echo '<li>';
-                echo '<a href="' . get_root_url() . DIRECTORY_SEPARATOR . 'experiments.php?init=' . $value . '">' . $language['HEADER_SUB_MENU'][$value] . '</a>';
+                echo '<a href="' . get_root_url() . DIRECTORY_SEPARATOR . 'experiments.php?init=' . $value->name . '">' . $language['HEADER_SUB_MENU'][$value->name] . '</a>';
                 echo '</li>';
               }
             ?>
@@ -109,23 +116,29 @@
     <?php 
       foreach ($experiments as $key => $value) {
         ?>
-        <div class="<?php echo $value . ($value === $experiment ? '' : ' hidden'); ?>">
+        <div class="<?php echo $value->name . ($value->name === $experiment ? '' : ' hidden'); ?>">
           <div class="container content-container container-title">
             <div class="container content-title">
-              <img class="icon icon-big" src="./assets/icons/<?php echo $value; ?>.svg" alt="Icon" />
-              <h1><?php echo $language['EXPERIMENT'][$value]; ?></h1>
+              <img class="icon icon-big" src="./assets/icons/<?php echo $value->name; ?>.svg" alt="Icon" />
+              <h1><?php echo $language['EXPERIMENT'][$value->name]; ?></h1>
             </div>
           </div>
           <div class="container content-container">
+            <canvas id="line-chart-<?php echo $value->name; ?>" width="800" height="450"></canvas>
+            <div id="experiment-visualization-<?php echo $value->name; ?>"></div>
             <div class="container content-title">
               <img class="icon icon-big" src="./assets/icons/slider.svg" alt="Icon" />
               <h3><?php echo $language['EXPERIMENT_SUBTITLE']; ?></h3>
             </div>
             <div class="container container-full">
-              <input id="input-range-<?php echo $value; ?>" class="input input-full input-range" type="range" min="0" max="1" step="0.01" value="0" />
+              <input id="input-range-<?php echo $value->name; ?>" class="input input-full input-range" type="range"
+                     min="<?php echo $value->min; ?>"
+                     max="<?php echo $value->max; ?>"
+                     step="<?php echo $value->step; ?>"
+                     value="0" />
               <div class="input-container">
                 <span class="arrow-left"></span>
-                <input type="text" id="input-range-label-<?php echo $value; ?>" class="input-range-label" value="0" />
+                <input type="text" id="input-range-label-<?php echo $value->name; ?>" class="input-range-label" value="0" />
               </div>
             </div>
           </div>

@@ -57,6 +57,21 @@ export const sendStatsToEmail = async (sendTo, stats, returnObj = null) => {
   }
 };
 
+export const getExperiment = async (experiment, r, returnObj = null) => {
+  const apiKey = await getApiKey('octave');
+  if (!apiKey) return;
+
+  const session = getCookie('PHPSESSID');
+  const url = `http://147.175.121.210:8043/api/experiments/${experiment}?r=${r}&session=${session}&api-key=${apiKey.key}`;
+
+  try {
+    const response = await ajaxRequest('GET', url);
+    return response;
+  } catch (error) {
+    return returnObj;
+  }
+};
+
 export const getApiKey = async (name, returnObj = null) => {
   const url = `http://147.175.121.210:8057/xzadanie-finalx/api/api-keys.php?key=${name}`;
 

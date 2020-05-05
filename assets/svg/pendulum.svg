@@ -1,0 +1,12 @@
+<svg width="455" height="329" viewBox="0 0 455 329" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="pendulum 1">
+<path id="static" d="M447.7 293.2H6.70001V303.2H447.7V293.2Z" fill="#768CA5"/>
+    <g id="body">
+        <g id="ball-and-stick">
+            <path id="stick" d="M229.4 18.2H225.1V289.2H229.4V18.2Z" fill="#A3B2C3"/>
+            <path id="ball" d="M227.2 34.2C235.484 34.2 242.2 27.4843 242.2 19.2C242.2 10.9157 235.484 4.2 227.2 4.2C218.916 4.2 212.2 10.9157 212.2 19.2C212.2 27.4843 218.916 34.2 227.2 34.2Z" fill="#FF5752"/>
+        </g>
+        <path id="base" d="M259.2 277.2H194.7V324.2H259.2V277.2Z" fill="#1A3F69"/>
+    </g>
+</g>
+</svg>
