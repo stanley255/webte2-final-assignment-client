@@ -13,7 +13,7 @@ export const sendCommand = async (command, returnObj = null) => {
   const apiKey = await getApiKey('octave');
   if (!apiKey) return;
 
-  const url = `http://147.175.121.210:8043/api/console?api-key=${apiKey.key}`;
+  const url = `http://52.233.133.56/api/console?api-key=${apiKey.key}`;
   const session = getCookie('PHPSESSID');
   const data = {
     session,
@@ -32,7 +32,7 @@ export const getStats = async (returnObj = null) => {
   const apiKey = await getApiKey('octave');
   if (!apiKey) return;
 
-  const url = `http://147.175.121.210:8043/api/stats?api-key=${apiKey.key}`;
+  const url = `http://52.233.133.56/api/stats?api-key=${apiKey.key}`;
 
   try {
     const response = await ajaxRequest('GET', url);
@@ -43,7 +43,7 @@ export const getStats = async (returnObj = null) => {
 };
 
 export const sendStatsToEmail = async (sendTo, stats, returnObj = null) => {
-  const url = `http://147.175.121.210:8057/xzadanie-finalx/api/stats.php`;
+  const url = `http://52.233.133.56/client/api/stats.php`;
   const data = {
     content: stats,
     email_to: sendTo,
@@ -62,7 +62,7 @@ export const getExperiment = async (experiment, r, returnObj = null) => {
   if (!apiKey) return;
 
   const session = getCookie('PHPSESSID');
-  const url = `http://147.175.121.210:8043/api/experiments/${experiment}?r=${r}&session=${session}&api-key=${apiKey.key}`;
+  const url = `http://52.233.133.56/api/experiments/${experiment}?r=${r}&session=${session}&api-key=${apiKey.key}`;
 
   try {
     const response = await ajaxRequest('GET', url);
@@ -73,7 +73,7 @@ export const getExperiment = async (experiment, r, returnObj = null) => {
 };
 
 export const getApiKey = async (name, returnObj = null) => {
-  const url = `http://147.175.121.210:8057/xzadanie-finalx/api/api-keys.php?key=${name}`;
+  const url = `http://52.233.133.56/client/api/api-keys.php?key=${name}`;
 
   try {
     const response = await ajaxRequest('GET', url);
