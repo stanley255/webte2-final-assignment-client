@@ -22,3 +22,15 @@
   overflow: hidden !important;
   text-overflow: ellipsis;
 }
+
+.graph-container {
+  width: 100%;
+  margin: 2em 0;
+}
+
+.experiment {
+  justify-content: center;
+  padding: 2em;
+  border: 3px dashed var(--fine-blue);
+  border-radius: 4px;
+}

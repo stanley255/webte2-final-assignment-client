@@ -1,48 +1,60 @@
-import { getExperiment } from "./helpers/ajax.js";
+import { getExperiment } from './helpers/ajax.js';
+import { createGraph } from './helpers/graph.js';
+import EXPERIMENTS from './helpers/experiments.js';
+
+// EXPERIMENTS
+import BeamAndBall from './experiments/beam-and-ball.js';
+import Car from './experiments/car.js';
+import Pendulum from './experiments/pendulum.js';
+import Plane from './experiments/plane.js';
 
 let CURRENT_EXPERIMENT;
 let CHART;
 
-$( document ).ready(function() {
-  CURRENT_EXPERIMENT = createExperimentObject(getCurrentExperiment());
-  CHART = createEmptyLineChart(CHARTS_LABELS[getCurrentExperiment()]);
-});
+const createEmptyLineChart = () => {
+  const currExp = getCurrentExperiment();
+  const labels = EXPERIMENTS[currExp].labels;
+  const ctx = $(`#line-chart-${currExp}`);
 
-const createEmptyLineChart = (labels) => {
-  return new Chart(document.getElementById(`line-chart-${getCurrentExperiment()}`), {
-    type: 'line',
-    data: {
-      labels: [],
-      datasets: [{
+  const graphData = {
+    labels: [],
+    datasets: [
+      {
         data: [],
         label: labels[0],
-        borderColor: "#3e95cd",
-        fill: false
-      }, {
+        borderColor: '#3e95cd',
+        fill: false,
+      },
+      {
         data: [],
         label: labels[1],
-        borderColor: "#8e5ea2",
-        fill: false
-      }]},
-    options: {
-      events: [],
-      animation: {
-        duration: 0,
+        borderColor: '#8e5ea2',
+        fill: false,
       },
-      responsiveAnimationDuration: 0,
-    }
-  });
-}
+    ],
+  };
+
+  const options = {
+    events: [],
+    animation: {
+      duration: 0,
+    },
+    responsiveAnimationDuration: 0,
+  };
+
+  return createGraph(ctx, 'line', graphData, options);
+};
 
 const createExperimentObject = (experimentName) => {
   let experimentObjectsByName = {
     inversePendulum: new Pendulum(),
     ballOnStick: new BeamAndBall(),
     carShockAbsorber: new Car(),
-    aircraftTilt: new Plane()
-  }
+    aircraftTilt: new Plane(),
+  };
+
   return experimentObjectsByName[experimentName];
-}
+};
 
 const getCurrentExperiment = () => {
   return $('main').attr('id');
@@ -60,31 +72,37 @@ const onInputRangeChange = (e) => {
 
 const onInputRangeRelease = async (e) => {
   const { value } = e.target;
-  const octaveData = await getExperiment(NAME_OF_ENDPOINTS[getCurrentExperiment()], value, {});
+  const octaveData = await getExperiment(
+    EXPERIMENTS[getCurrentExperiment()].endpoint,
+    value,
+    {}
+  );
 
-  $(`#input-range-${getCurrentExperiment()}`).prop( "disabled", true);
+  $(`#input-range-${getCurrentExperiment()}`).prop('disabled', true);
 
-  // TODO Clear plot data
+  CHART.destroy();
+  CHART = createEmptyLineChart();
 
   CURRENT_EXPERIMENT.runAnimation(octaveData);
-  plotExperiment(octaveData).then(() => {
-    $(`#input-range-${getCurrentExperiment()}`).prop("disabled", false);
+  addDataToPlot(octaveData).then(() => {
+    $(`#input-range-${getCurrentExperiment()}`).prop('disabled', false);
     // TODO Allow onlick/onhover after animation
   });
-}
+};
 
-const plotExperiment = async (octaveData) => {
+const addDataToPlot = async (octaveData) => {
   for (let record of octaveData.content) {
     CHART.data.labels.push(record.x);
     CHART.data.datasets[0].data.push(record.y);
     CHART.data.datasets[1].data.push(record.bodyworkHeight);
-    await new Promise(r => setTimeout(r, 50));
+    await new Promise((r) => setTimeout(r, 50));
+
     CHART.update();
   }
-}
+};
 
 const onInputRangeLabelChange = (e) => {
-  const regex = /^[0](\.\d{0,2})?$|^[1]{1}$/m;
+  const regex = EXPERIMENTS[getCurrentExperiment()].regex;
   let { value } = e.target;
 
   if (!regex.test(value)) {
@@ -96,11 +114,19 @@ const onInputRangeLabelChange = (e) => {
 };
 
 const initInputRanges = () => {
-  $(`#input-range-${getCurrentExperiment()}`).on('input', onInputRangeChange).on('change', onInputRangeRelease);
+  $(`#input-range-${getCurrentExperiment()}`)
+    .on('input', onInputRangeChange)
+    .on('change', onInputRangeRelease);
   $(`#input-range-label-${getCurrentExperiment()}`).on(
     'input',
     onInputRangeLabelChange
   );
 };
 
+const initExperiment = () => {
+  CURRENT_EXPERIMENT = createExperimentObject(getCurrentExperiment());
+  CHART = createEmptyLineChart();
+};
+
 initInputRanges();
+initExperiment();

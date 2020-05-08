@@ -28,5 +28,11 @@
   }
 
   function get_experiments_names() {
-      return array('inversePendulum', 'ballOnStick', 'carShockAbsorber', 'aircraftTilt');
+    $experiments = array();
+
+    foreach (get_all_experiments() as $key => $value) {
+      array_push($experiments, $value->name);
+    }
+
+    return $experiments;
   }

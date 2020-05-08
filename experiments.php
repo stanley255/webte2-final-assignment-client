@@ -45,13 +45,6 @@
   <script defer src="./assets/js/main.js" type="module"></script>
   <script defer src="./assets/js/experiments.js" type="module"></script>
 
-  <script defer src="./assets/js/experiments/experiment-constants.js"></script>
-  <script defer src="./assets/js/experiments/experiment.js"></script>
-  <script defer src="./assets/js/experiments/plane.js"></script>
-  <script defer src="./assets/js/experiments/pendulum.js"></script>
-  <script defer src="./assets/js/experiments/beam-and-ball.js"></script>
-  <script defer src="./assets/js/experiments/car.js"></script>
-
   <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/normalize.css">
   <link rel="stylesheet" href="./assets/css/chart.min.css">
@@ -124,8 +117,6 @@
             </div>
           </div>
           <div class="container content-container">
-            <canvas id="line-chart-<?php echo $value->name; ?>" width="800" height="450"></canvas>
-            <div id="experiment-visualization-<?php echo $value->name; ?>"></div>
             <div class="container content-title">
               <img class="icon icon-big" src="./assets/icons/slider.svg" alt="Icon" />
               <h3><?php echo $language['EXPERIMENT_SUBTITLE']; ?></h3>
@@ -141,6 +132,10 @@
                 <input type="text" id="input-range-label-<?php echo $value->name; ?>" class="input-range-label" value="0" />
               </div>
             </div>
+            <div class="container graph-container">
+              <canvas id="line-chart-<?php echo $value->name; ?>" width="800" height="450"></canvas>
+            </div>
+            <div id="experiment-visualization-<?php echo $value->name; ?>" class="container container-full experiment"></div>
           </div>
         </div>
         <?php
