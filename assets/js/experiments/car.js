@@ -1,5 +1,6 @@
 import Experiment from './experiment.js';
 import EXPERIMENTS from '../helpers/experiments.js';
+import { radToDeg } from '../helpers/experiments.js';
 
 class Car extends Experiment {
   constructor() {
@@ -18,7 +19,7 @@ class Car extends Experiment {
 
   async runAnimation(octaveData) {
     for (let record of octaveData.content) {
-      this.moveTierAbsolute(record.y);
+      this.moveTierAbsolute(-record.y);
       this.moveCarAbsolute(record.bodyworkHeight);
       await new Promise((r) => setTimeout(r, 50));
     }

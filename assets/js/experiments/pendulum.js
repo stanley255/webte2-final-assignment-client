@@ -17,7 +17,7 @@ class Pendulum extends Experiment {
   async runAnimation(octaveData) {
     for (let record of octaveData.content) {
       this.moveBaseAbsolute(record.y);
-      // this.rotateBallAndStickAbsolute(record.angle);
+      this.rotateBallAndStickAbsolute(record.angle);
       await new Promise((r) => setTimeout(r, 50));
     }
   }

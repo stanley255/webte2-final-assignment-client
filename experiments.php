@@ -132,10 +132,12 @@
                 <input type="text" id="input-range-label-<?php echo $value->name; ?>" class="input-range-label" value="0" />
               </div>
             </div>
-            <div class="container graph-container">
-              <canvas id="line-chart-<?php echo $value->name; ?>" width="800" height="450"></canvas>
+            <div class="container group-container">
+              <div class="container graph-container">
+               <canvas id="line-chart-<?php echo $value->name; ?>" width="800" height="450"></canvas>
+              </div>
+              <div id="experiment-visualization-<?php echo $value->name; ?>" class="container container-full experiment"></div>
             </div>
-            <div id="experiment-visualization-<?php echo $value->name; ?>" class="container container-full experiment"></div>
           </div>
         </div>
         <?php

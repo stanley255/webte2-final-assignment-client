@@ -8,11 +8,13 @@ class Experiment {
   }
 
   rotate(layer, angle) {
-    $(layer).attr('transform', 'rotate(' + angle + ')');
+    $(layer).css({ transform: 'rotate(' + angle + 'rad)' });
   }
 
   move(layer, coords) {
-    $(layer).attr('transform', 'translate(' + coords.x + ',' + coords.y + ')');
+    $(layer).attr({
+      transform: 'translate(' + coords.x + ',' + coords.y + ')',
+    });
   }
 }
 

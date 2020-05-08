@@ -11,6 +11,8 @@ export const revert = (value) =>
     return reducer;
   }, undefined);
 
+export const radToDeg = (rad) => rad * 57.2957795;
+
 export const experimentColors = {
   aircraftTilt: '#768ca5',
   ballOnStick: '#1A3F69',
@@ -39,9 +41,9 @@ export const dictionary = {
 
 export default {
   inversePendulum: {
-    svg: './assets/svg/pendulum.svg',
+    svg: './assets/svg/pendulum_new.svg',
     layers: {
-      body: '#body',
+      body: '#pendulum-body',
       ballAndStick: '#ball-and-stick',
     },
     labels: ['Pozícia kyvadla', 'Vychýlenie (radiány)'],
@@ -49,7 +51,7 @@ export default {
     regex: /^-?([0-9]$|^-?[1-9][0-9]$|^-?[1][0]{2})?$/m,
   },
   ballOnStick: {
-    svg: './assets/svg/beamAndBall.svg',
+    svg: './assets/svg/beamAndBall_new.svg',
     layers: {
       platform: '#platform',
       ball: '#ball',
@@ -61,7 +63,7 @@ export default {
   carShockAbsorber: {
     svg: './assets/svg/car.svg',
     layers: {
-      body: '#body',
+      body: '#car-body',
       wheel: '#wheel',
     },
     labels: ['Výška kolesa', 'Výška auta'],

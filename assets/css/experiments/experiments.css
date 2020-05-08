@@ -23,14 +23,41 @@
   text-overflow: ellipsis;
 }
 
-.graph-container {
+.group-container {
   width: 100%;
   margin: 2em 0;
 }
 
+.group-container > div {
+  width: 48%;
+  margin: 0 0.5%;
+}
+
+.group-container .graph-container {
+  margin-right: 2em;
+}
+
+.graph-container {
+  width: 100%;
+}
+
 .experiment {
   justify-content: center;
-  padding: 2em;
   border: 3px dashed var(--fine-blue);
   border-radius: 4px;
+}
+
+@media only screen and (max-width: 900px) {
+  .group-container {
+    flex-direction: column;
+  }
+
+  .group-container > div {
+    width: 100%;
+    margin: 0;
+  }
+
+  .group-container > div:first-child {
+    margin-bottom: 2em;
+  }
 }

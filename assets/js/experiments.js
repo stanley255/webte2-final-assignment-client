@@ -94,7 +94,11 @@ const addDataToPlot = async (octaveData) => {
   for (let record of octaveData.content) {
     CHART.data.labels.push(record.x);
     CHART.data.datasets[0].data.push(record.y);
-    CHART.data.datasets[1].data.push(record.bodyworkHeight);
+    if (record.bodyworkHeight) {
+      CHART.data.datasets[1].data.push(record.bodyworkHeight);
+    } else {
+      CHART.data.datasets[1].data.push(record.angle);
+    }
     await new Promise((r) => setTimeout(r, 50));
 
     CHART.update();
