@@ -23,6 +23,6 @@
   $language['EXPERIMENT_SUBTITLE'] = 'Choose your value carefully ...';
 
   //CONTACT PAGE
-  $language['CONTANT_PAGE_TITLE'] = 'Project was made by';
+  $language['CONTANT_PAGE_TITLE'] = 'Project has been made by';
   $language['CONTANT_PAGE_AGE'] = 'years';
 ?>
