@@ -45,7 +45,7 @@ const createEmptyLineChart = () => {
   return createGraph(ctx, 'line', graphData, options);
 };
 
-const createExperimentObject = (experimentName) => {
+const createExperimentObject = () => {
   let experimentObjectsByName = {
     inversePendulum: new Pendulum(),
     ballOnStick: new BeamAndBall(),
@@ -53,7 +53,7 @@ const createExperimentObject = (experimentName) => {
     aircraftTilt: new Plane(),
   };
 
-  return experimentObjectsByName[experimentName];
+  return experimentObjectsByName[getCurrentExperiment()];
 };
 
 const getCurrentExperiment = () => {
@@ -61,8 +61,10 @@ const getCurrentExperiment = () => {
 };
 
 const setCurrentExperiment = (experiment) => {
+  $(`.${getCurrentExperiment()}`).addClass('hidden');
   $('main').attr({ id: experiment });
-  initInputRanges();
+  $(`.${getCurrentExperiment()}`).removeClass('hidden');
+  initExperiment();
 };
 
 const onInputRangeChange = (e) => {
@@ -127,10 +129,30 @@ const initInputRanges = () => {
   );
 };
 
+const initDisableButton = () => {
+  $('.experiment-button').each(function () {
+    $(this).attr({
+      disabled: false,
+    });
+  });
+
+  $(`#experiment-button-${getCurrentExperiment()}`).attr({
+    disabled: true,
+  });
+};
+
 const initExperiment = () => {
-  CURRENT_EXPERIMENT = createExperimentObject(getCurrentExperiment());
+  initDisableButton();
+  initInputRanges();
+  CURRENT_EXPERIMENT = createExperimentObject();
   CHART = createEmptyLineChart();
 };
 
-initInputRanges();
+const initExperimentButtons = () => {
+  $('.experiment-button').each(function () {
+    $(this).on('click', (e) => setCurrentExperiment($(e.target).attr('name')));
+  });
+};
+
+initExperimentButtons();
 initExperiment();

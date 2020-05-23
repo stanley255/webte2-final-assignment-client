@@ -21,4 +21,8 @@
   $language['EXPERIMENT']['carShockAbsorber'] = 'Car shock absorber';
   $language['EXPERIMENT']['aircraftTilt'] = 'Aircraft pitch';
   $language['EXPERIMENT_SUBTITLE'] = 'Choose your value carefully ...';
+
+  //CONTACT PAGE
+  $language['CONTANT_PAGE_TITLE'] = 'Project was made by';
+  $language['CONTANT_PAGE_AGE'] = 'years';
 ?>

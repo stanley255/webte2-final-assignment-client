@@ -3,6 +3,11 @@
   height: 30px;
 }
 
+.icon-mini {
+  width: 16px;
+  height: 16px;
+}
+
 .icon-small {
   width: 20px;
   height: 20px;
@@ -34,4 +39,34 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.icon-menu {
+  width: 25px;
+  height: 25px;
+  display: none;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+
+.icon-menu:hover {
+  transform: scale(1.05);
+}
+
+.icon-git {
+  position: absolute;
+  top: calc(180px - 15px);
+  right: 1em;
+  transition: transform 0.6s ease-in-out;
+  z-index: 2;
+}
+
+.icon-git:hover {
+  transform: scale(1.15) rotate(360deg);
+}
+
+@media only screen and (max-width: 900px) {
+  .icon-menu {
+    display: block;
+  }
 }

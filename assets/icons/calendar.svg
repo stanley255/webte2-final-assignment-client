@@ -1,0 +1,16 @@
+<svg id="calendar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <g id="Group_31" data-name="Group 31">
+    <g id="Group_30" data-name="Group 30">
+      <path id="Path_34" data-name="Path 34" d="M279,364a40.045,40.045,0,0,0,40,40h47a40.045,40.045,0,0,0,40-40V317a40.045,40.045,0,0,0-40-40H319a40.045,40.045,0,0,0-40,40Zm40-47h47l.025,47H319Z" fill="#4d6888"/>
+      <circle id="Ellipse_4" data-name="Ellipse 4" cx="20" cy="20" r="20" transform="translate(366 190)" fill="#1a3f69"/>
+      <circle id="Ellipse_5" data-name="Ellipse 5" cx="20" cy="20" r="20" transform="translate(279 190)" fill="#1a3f69"/>
+      <path id="Path_35" data-name="Path 35" d="M492,352a20,20,0,0,0,20-20V120a80.091,80.091,0,0,0-80-80H406V20a20,20,0,0,0-40,0V40H275V20a20,20,0,0,0-40,0V40H145V20a20,20,0,0,0-40,0V40H80A80.091,80.091,0,0,0,0,120V432a80.091,80.091,0,0,0,80,80H432a80.091,80.091,0,0,0,80-80,20,20,0,0,0-40,0,40.045,40.045,0,0,1-40,40H80a40.045,40.045,0,0,1-40-40V120A40.045,40.045,0,0,1,80,80h25v20a20,20,0,0,0,40,0V80h90v20a20,20,0,0,0,40,0V80h91v20a20,20,0,0,0,40,0V80h26a40.045,40.045,0,0,1,40,40V332A20,20,0,0,0,492,352Z" fill="#1a3f69"/>
+      <circle id="Ellipse_6" data-name="Ellipse 6" cx="20" cy="20" r="20" transform="translate(105 364)" fill="#1a3f69"/>
+      <circle id="Ellipse_7" data-name="Ellipse 7" cx="20" cy="20" r="20" transform="translate(105 190)" fill="#1a3f69"/>
+      <circle id="Ellipse_8" data-name="Ellipse 8" cx="20" cy="20" r="20" transform="translate(105 277)" fill="#1a3f69"/>
+      <circle id="Ellipse_9" data-name="Ellipse 9" cx="20" cy="20" r="20" transform="translate(192 277)" fill="#1a3f69"/>
+      <circle id="Ellipse_10" data-name="Ellipse 10" cx="20" cy="20" r="20" transform="translate(192 190)" fill="#1a3f69"/>
+      <circle id="Ellipse_11" data-name="Ellipse 11" cx="20" cy="20" r="20" transform="translate(192 364)" fill="#1a3f69"/>
+    </g>
+  </g>
+</svg>

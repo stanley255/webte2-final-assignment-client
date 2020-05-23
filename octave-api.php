@@ -49,11 +49,16 @@
 </head>
 <body>
   <header class="container header-container">
-    <div class="container">
-      <img src="./assets/icons/logo.svg" alt="Logo" class="icon" />
-      <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'index.php'; ?>" class="logo-title"><strong>Webte2</strong>Final</a>
+    <div class="container container-space">
+      <div class="container">
+        <img src="./assets/icons/logo.svg" alt="Logo" class="icon" />
+        <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'index.php'; ?>" class="logo-title"><strong>Webte2</strong>Final</a>
+      </div>
+      <div class="container">
+        <img id="menu-button" class="icon icon-menu" src="./assets/icons/menu.svg" alt="Menu" />
+      </div>
     </div>
-    <nav class="container">
+    <nav id="navigation" class="container navigation-container">
       <div class="container nav-item">
         <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'index.php'; ?>" class="nav-link"><?php echo $language['HEADER_MENU_1']; ?></a>
         <span class="delimeter"></span>

@@ -21,4 +21,8 @@
   $language['EXPERIMENT']['carShockAbsorber'] = 'Tlmič kolesa';
   $language['EXPERIMENT']['aircraftTilt'] = 'Náklon lietadla';
   $language['EXPERIMENT_SUBTITLE'] = 'Zvoľ si svoju hodnotu zodpovedne ...';
+
+  //CONTACT PAGE
+  $language['CONTANT_PAGE_TITLE'] = 'Projekt vytvorili';
+  $language['CONTANT_PAGE_AGE'] = 'rokov';
 ?>

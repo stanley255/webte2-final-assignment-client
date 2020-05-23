@@ -51,6 +51,7 @@
   <link rel="stylesheet" href="./assets/css/main.css">  
   <link rel="stylesheet" href="./assets/css/icon.css">  
   <link rel="stylesheet" href="./assets/css/input.css">  
+  <link rel="stylesheet" href="./assets/css/button.css">  
   <link rel="stylesheet" href="./assets/css/header/header.css">  
   <link rel="stylesheet" href="./assets/css/experiments/experiments.css">  
 
@@ -59,11 +60,16 @@
 </head>
 <body>
   <header class="container header-container">
-    <div class="container">
-      <img src="./assets/icons/logo.svg" alt="Logo" class="icon" />
-      <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'index.php'; ?>" class="logo-title"><strong>Webte2</strong>Final</a>
+    <div class="container container-space">
+      <div class="container">
+        <img src="./assets/icons/logo.svg" alt="Logo" class="icon" />
+        <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'index.php'; ?>" class="logo-title"><strong>Webte2</strong>Final</a>
+      </div>
+      <div class="container">
+        <img id="menu-button" class="icon icon-menu" src="./assets/icons/menu.svg" alt="Menu" />
+      </div>
     </div>
-    <nav class="container">
+    <nav id="navigation" class="container navigation-container">
       <div class="container nav-item">
         <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'index.php'; ?>" class="nav-link"><?php echo $language['HEADER_MENU_1']; ?></a>
         <span class="delimeter"></span>
@@ -95,15 +101,24 @@
   <div class="container flags-container">
     <div class="flag-container <?php echo ($lang === 'sk' ? 'flag-active': ''); ?>">
       <a class="language-button" href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . __SCRIPT_NAME__; ?>" title="sk">
-        <img id="<?php echo ($lang === 'sk' ? 'lang-active': ''); ?>" class="icon icon-rec" src="./assets/icons/slovakia-flag.svg" alt="sk" title="sk" />
+        <img <?php echo ($lang === 'sk' ? 'id="lang-active"': ''); ?> class="icon icon-rec" src="./assets/icons/slovakia-flag.svg" alt="sk" title="sk" />
       </a>
     </div>
     <div class="flag-delimeter"></div>
     <div class="flag-container <?php echo ($lang === 'en' ? 'flag-active': ''); ?>">
       <a class="language-button" href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . __SCRIPT_NAME__; ?>" title="en">
-        <img id="<?php echo ($lang === 'en' ? 'lang-active': ''); ?>" class="icon icon-flag" src="./assets/icons/united-kingdom-flag.svg" alt="en" title="en" />
+        <img <?php echo ($lang === 'en' ? 'id="lang-active"': ''); ?> class="icon icon-flag" src="./assets/icons/united-kingdom-flag.svg" alt="en" title="en" />
       </a>
     </div>
+  </div>
+  <div class="experiment-header">
+    <?php 
+      foreach (get_experiments_names() as $key => $value) {
+        ?>
+         <button id="<?php echo 'experiment-button-' . $value; ?>" name="<?php echo $value; ?>" class="button experiment-button"><?php echo $language['EXPERIMENT'][$value]; ?></button>
+        <?php
+      }
+    ?>
   </div>
   <main id="<?php echo $experiment; ?>">
     <?php 
@@ -115,7 +130,7 @@
               <img class="icon icon-big" src="./assets/icons/<?php echo $value->name; ?>.svg" alt="Icon" />
               <h1><?php echo $language['EXPERIMENT'][$value->name]; ?></h1>
             </div>
-          </div>
+          </div> 
           <div class="container content-container">
             <div class="container content-title">
               <img class="icon icon-big" src="./assets/icons/slider.svg" alt="Icon" />

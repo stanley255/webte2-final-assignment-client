@@ -4,6 +4,7 @@
   --light-blue: #768ca5;
   --off-blue: #a3b2c3;
   --fine-blue: #d1d9e1;
+  --off-white: #f0f0f0;
   --white: #fff;
   --yellow: #ffc733;
   --red: #ff5752;
@@ -33,7 +34,6 @@ main {
   margin: 0 4.5em;
   padding: 2.5em;
   background: rgb(255, 255, 255);
-  background: rgb(255, 255, 255);
   background: linear-gradient(
     145deg,
     rgba(255, 255, 255, 1) 0%,
@@ -52,6 +52,10 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.container-space {
+  justify-content: space-between;
 }
 
 .container-full {

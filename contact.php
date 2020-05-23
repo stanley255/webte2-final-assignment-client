@@ -43,17 +43,23 @@
   <link rel="stylesheet" href="./assets/css/icon.css">  
   <link rel="stylesheet" href="./assets/css/input.css">  
   <link rel="stylesheet" href="./assets/css/header/header.css">  
+  <link rel="stylesheet" href="./assets/css/contact/contact.css">  
 
   <!-- TITLE -->
   <title>Webte2Final</title>
 </head>
 <body>
   <header class="container header-container">
-    <div class="container">
-      <img src="./assets/icons/logo.svg" alt="Logo" class="icon" />
-      <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'index.php'; ?>" class="logo-title"><strong>Webte2</strong>Final</a>
+    <div class="container container-space">
+      <div class="container">
+        <img src="./assets/icons/logo.svg" alt="Logo" class="icon" />
+        <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'index.php'; ?>" class="logo-title"><strong>Webte2</strong>Final</a>
+      </div>
+      <div class="container">
+        <img id="menu-button" class="icon icon-menu" src="./assets/icons/menu.svg" alt="Menu" />
+      </div>
     </div>
-    <nav class="container">
+    <nav id="navigation" class="container navigation-container">
       <div class="container nav-item">
         <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'index.php'; ?>" class="nav-link"><?php echo $language['HEADER_MENU_1']; ?></a>
         <span class="delimeter"></span>
@@ -96,7 +102,61 @@
     </div>
   </div>
   <main>
-    
+    <div class="container content-container container-title">
+      <div class="container content-title">
+        <img class="icon icon-big" src="./assets/icons/programmer.svg" alt="Icon" />
+        <h1><?php echo $language['CONTANT_PAGE_TITLE']; ?></h1>
+      </div>
+    </div>
+    <div class="contact-container">
+      <?php 
+        foreach (get_contacts() as $key => $value) {
+          ?>
+            <div class="card">
+              <div style="background-image: url(<?php echo $value->image; ?>);" class="card-image"></div>
+              <a href="<?php echo $value->git; ?>" target="_blank">
+                <img class="icon icon-git" src="./assets/icons/github.svg" />
+              </a>
+              <div class="card-content">
+                <h3 class="card-title"><?php echo $value->name; ?></h3>
+                <div class="card-section section-border">
+                  <div class="container container-space item-container">
+                    <img src="./assets/icons/mail.svg" class="icon icon-small" />
+                    <a class="text-info" href="mailto:<?php echo $value->mail; ?>" ><?php echo $value->mail; ?></a>
+                  </div>
+                  <div class="container container-space item-container">
+                    <img src="./assets/icons/aisid.svg" class="icon icon-small" />
+                    <span class="text-info"><?php echo $value->ais_id; ?></span>
+                  </div>
+                  <div class="container container-space item-container">
+                    <img src="./assets/icons/calendar.svg" class="icon icon-small" />
+                    <span class="text-info"><?php echo $value->age; ?> <?php echo $language['CONTANT_PAGE_AGE']; ?></span>
+                  </div>
+                </div>
+                <div class="card-section section-border">
+                  <div class="container container-space item-container">
+                    <img src="./assets/icons/experiment.svg" class="icon icon-small" />
+                    <span class="text-info text-bold"><?php echo $language['EXPERIMENT'][$value->experiment]; ?></span>
+                  </div>
+                </div>
+                <div class="card-section">
+                  <?php 
+                    foreach ($value->tasks as $key => $task) {
+                      ?>
+                        <div class="container container-space item-container">
+                          <img src="./assets/icons/checkbox-checked.svg" class="icon icon-mini" />
+                          <span class="text-info"><?php echo $task[$lang]; ?></span>
+                        </div>
+                      <?php
+                    }
+                  ?>
+                </div>
+              </div>
+            </div>
+          <?php
+        }
+      ?>
+    </div>
   </main>
 </body>
 </html>
