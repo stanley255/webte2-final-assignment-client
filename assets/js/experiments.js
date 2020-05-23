@@ -81,15 +81,16 @@ const onInputRangeRelease = async (e) => {
   );
 
   $(`#input-range-${getCurrentExperiment()}`).prop('disabled', true);
+  setDisableToAllButtons(true);
 
   CHART.destroy();
   CHART = createEmptyLineChart();
 
   CURRENT_EXPERIMENT.runAnimation(octaveData);
-  addDataToPlot(octaveData).then(() => {
-    $(`#input-range-${getCurrentExperiment()}`).prop('disabled', false);
-    // TODO Allow onlick/onhover after animation
-  });
+
+  await addDataToPlot(octaveData);
+  $(`#input-range-${getCurrentExperiment()}`).prop('disabled', false);
+  setDisableToAllButtons();
 };
 
 const addDataToPlot = async (octaveData) => {
@@ -120,21 +121,25 @@ const onInputRangeLabelChange = (e) => {
 };
 
 const initInputRanges = () => {
-  $(`#input-range-${getCurrentExperiment()}`)
-    .on('input', onInputRangeChange)
-    .on('change', onInputRangeRelease);
-  $(`#input-range-label-${getCurrentExperiment()}`).on(
-    'input',
-    onInputRangeLabelChange
-  );
+  $('.input-range').each(function () {
+    $(this).on('input', onInputRangeChange).on('change', onInputRangeRelease);
+  });
+
+  $('.input-range-label').each(function () {
+    $(this).on('input', onInputRangeLabelChange);
+  });
+};
+
+const setDisableToAllButtons = (disabled = false) => {
+  $('.experiment-button').each(function () {
+    $(this).attr({
+      disabled,
+    });
+  });
 };
 
 const initDisableButton = () => {
-  $('.experiment-button').each(function () {
-    $(this).attr({
-      disabled: false,
-    });
-  });
+  setDisableToAllButtons();
 
   $(`#experiment-button-${getCurrentExperiment()}`).attr({
     disabled: true,
@@ -143,7 +148,6 @@ const initDisableButton = () => {
 
 const initExperiment = () => {
   initDisableButton();
-  initInputRanges();
   CURRENT_EXPERIMENT = createExperimentObject();
   CHART = createEmptyLineChart();
 };
@@ -155,4 +159,5 @@ const initExperimentButtons = () => {
 };
 
 initExperimentButtons();
+initInputRanges();
 initExperiment();

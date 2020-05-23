@@ -3,7 +3,7 @@
   function get_all_experiments() {
     $inversePendulum = new stdClass();
     $inversePendulum->name = 'inversePendulum';
-    $inversePendulum->min = -10;
+    $inversePendulum->min = 0;
     $inversePendulum->max = 10;
     $inversePendulum->step = 1;
 
@@ -66,9 +66,9 @@
     );
 
     $stanislav_pekarovic = new stdClass();
-    $stanislav_pekarovic->image = './assets/images/programmer.jpg';
+    $stanislav_pekarovic->image = './assets/images/stanislav-pekarovic.jpg';
     $stanislav_pekarovic->name = 'Stanislav Pekarovič';
-    $stanislav_pekarovic->age = 'xx';
+    $stanislav_pekarovic->age = '22';
     $stanislav_pekarovic->mail = 'xpekarovic@stuba.sk';
     $stanislav_pekarovic->ais_id = '92323';
     $stanislav_pekarovic->git = 'https://github.com/stanley255';

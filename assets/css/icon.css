@@ -55,7 +55,7 @@
 
 .icon-git {
   position: absolute;
-  top: calc(180px - 15px);
+  top: calc(250px - 15px);
   right: 1em;
   transition: transform 0.6s ease-in-out;
   z-index: 2;
