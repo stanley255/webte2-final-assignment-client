@@ -93,9 +93,9 @@
     );
 
     $matej_friedel = new stdClass();
-    $matej_friedel->image = './assets/images/programmer.jpg';
+    $matej_friedel->image = './assets/images/matej-friedel.jpg';
     $matej_friedel->name = 'Matej Friedel';
-    $matej_friedel->age = 'xx';
+    $matej_friedel->age = '22';
     $matej_friedel->mail = 'xfriedel@stuba.sk';
     $matej_friedel->ais_id = '92274';
     $matej_friedel->git = 'https://github.com/MatejFriedel';
