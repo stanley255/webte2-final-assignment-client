@@ -1,5 +1,6 @@
-import { getExperiment } from './helpers/ajax.js';
+import { getExperiment, getLatestInput } from './helpers/ajax.js';
 import { createGraph } from './helpers/graph.js';
+import { getCurrentLanguage } from './helpers/language.js';
 import EXPERIMENTS from './helpers/experiments.js';
 
 // EXPERIMENTS
@@ -13,7 +14,7 @@ let CHART;
 
 const createEmptyLineChart = () => {
   const currExp = getCurrentExperiment();
-  const labels = EXPERIMENTS[currExp].labels;
+  const labels = EXPERIMENTS[currExp].labels[getCurrentLanguage()];
   const ctx = $(`#line-chart-${currExp}`);
 
   const graphData = {
@@ -60,16 +61,25 @@ const getCurrentExperiment = () => {
   return $('main').attr('id');
 };
 
-const setCurrentExperiment = (experiment) => {
+const setCurrentExperiment = async (experiment) => {
   $(`.${getCurrentExperiment()}`).addClass('hidden');
   $('main').attr({ id: experiment });
   $(`.${getCurrentExperiment()}`).removeClass('hidden');
+
+  const response = await getLatestInput(getCurrentExperiment());
+  if (response.r) onInputRangeChange({ target: { value: response.r } });
+
   initExperiment();
 };
 
 const onInputRangeChange = (e) => {
   const { value } = e.target;
+  const regex = EXPERIMENTS[getCurrentExperiment()].regex;
+
+  if (!regex.test(value)) return;
+
   $(`#input-range-label-${getCurrentExperiment()}`).val(value);
+  $(`#input-range-${getCurrentExperiment()}`).val(value);
 };
 
 const onInputRangeRelease = async (e) => {
@@ -160,4 +170,4 @@ const initExperimentButtons = () => {
 
 initExperimentButtons();
 initInputRanges();
-initExperiment();
+setCurrentExperiment(getCurrentExperiment());

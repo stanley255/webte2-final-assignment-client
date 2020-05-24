@@ -22,7 +22,11 @@
   $language['EXPERIMENT']['aircraftTilt'] = 'Aircraft pitch';
   $language['EXPERIMENT_SUBTITLE'] = 'Choose your value carefully ...';
 
+  //OCTAVE-API PAGE
+  $language['OCTAVE_API_PAGE_TITLE'] = 'Octave API reference';
+  $language['OCTAVE_API_URI_PARAMS'] = 'URI params';
+  $language['OCTAVE_API_BODY_PARAMS'] = 'Body params';
+
   //CONTACT PAGE
   $language['CONTANT_PAGE_TITLE'] = 'Project has been made by';
-  $language['CONTANT_PAGE_AGE'] = 'years';
 ?>

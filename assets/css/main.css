@@ -109,6 +109,14 @@ a {
   border: 1px solid var(--dark-blue) !important;
 }
 
+.secondary {
+  color: var(--turquoise);
+}
+
+.border-secondary {
+  border: 1px solid var(--turquoise) !important;
+}
+
 .red {
   background-color: var(--red);
 }
@@ -123,6 +131,10 @@ a {
 
 .dark-blue {
   background-color: var(--dark-blue);
+}
+
+.turquoise {
+  background-color: var(--turquoise);
 }
 
 @media only screen and (max-width: 900px) {

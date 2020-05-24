@@ -22,7 +22,11 @@
   $language['EXPERIMENT']['aircraftTilt'] = 'Náklon lietadla';
   $language['EXPERIMENT_SUBTITLE'] = 'Zvoľ si svoju hodnotu zodpovedne ...';
 
+  //OCTAVE-API PAGE
+  $language['OCTAVE_API_PAGE_TITLE'] = 'Octave API referencia';
+  $language['OCTAVE_API_URI_PARAMS'] = 'URI parametre';
+  $language['OCTAVE_API_BODY_PARAMS'] = 'Body parametre';
+
   //CONTACT PAGE
   $language['CONTANT_PAGE_TITLE'] = 'Projekt vytvorili';
-  $language['CONTANT_PAGE_AGE'] = 'rokov';
 ?>

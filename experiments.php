@@ -124,7 +124,7 @@
     <?php 
       foreach ($experiments as $key => $value) {
         ?>
-        <div class="<?php echo $value->name . ($value->name === $experiment ? '' : ' hidden'); ?>">
+        <div class="hidden <?php echo $value->name; ?>">
           <div class="container content-container container-title">
             <div class="container content-title">
               <img class="icon icon-big" src="./assets/icons/<?php echo $value->name; ?>.svg" alt="Icon" />

@@ -72,6 +72,21 @@ export const getExperiment = async (experiment, r, returnObj = null) => {
   }
 };
 
+export const getLatestInput = async (experiment, returnObj = null) => {
+  const apiKey = await getApiKey('octave');
+  if (!apiKey) return;
+
+  const session = getCookie('PHPSESSID');
+  const url = `http://52.233.133.56/api/logs?experiment=${experiment}&session=${session}&api-key=${apiKey.key}`;
+
+  try {
+    const response = await ajaxRequest('GET', url);
+    return response;
+  } catch (error) {
+    return returnObj;
+  }
+};
+
 export const getApiKey = async (name, returnObj = null) => {
   const url = `http://52.233.133.56/client/api/api-keys.php?key=${name}`;
 

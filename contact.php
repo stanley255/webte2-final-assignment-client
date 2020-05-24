@@ -122,7 +122,7 @@
                 <div class="card-section section-border">
                   <div class="container container-space item-container">
                     <img src="./assets/icons/mail.svg" class="icon icon-small" />
-                    <a class="text-info" href="mailto:<?php echo $value->mail; ?>" ><?php echo $value->mail; ?></a>
+                    <a class="text-info text-bold" href="mailto:<?php echo $value->mail; ?>" ><?php echo $value->mail; ?></a>
                   </div>
                   <div class="container container-space item-container">
                     <img src="./assets/icons/aisid.svg" class="icon icon-small" />
@@ -130,7 +130,7 @@
                   </div>
                   <div class="container container-space item-container">
                     <img src="./assets/icons/calendar.svg" class="icon icon-small" />
-                    <span class="text-info"><?php echo $value->age; ?> <?php echo $language['CONTANT_PAGE_AGE']; ?></span>
+                    <span class="text-info"><?php echo $value->age[$lang]; ?></span>
                   </div>
                 </div>
                 <div class="card-section section-border">

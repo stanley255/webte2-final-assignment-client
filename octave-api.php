@@ -43,6 +43,7 @@
   <link rel="stylesheet" href="./assets/css/icon.css">  
   <link rel="stylesheet" href="./assets/css/input.css">  
   <link rel="stylesheet" href="./assets/css/header/header.css">  
+  <link rel="stylesheet" href="./assets/css/octave-api/octave-api.css">  
 
   <!-- TITLE -->
   <title>Webte2Final</title>
@@ -101,7 +102,63 @@
     </div>
   </div>
   <main>
-    
+    <div class="container container-space content-container container-title">
+      <div class="container content-title">
+        <img class="icon icon-big" src="./assets/icons/api.svg" alt="Icon" />
+        <h1><?php echo $language['OCTAVE_API_PAGE_TITLE']; ?></h1>
+      </div>
+      <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'helpers/pdf.php?pdf=octave'; ?>" target="_blank">
+        <img id="pdf-file" class="icon icon-file" src="./assets/icons/pdf.svg" alt="Icon" />
+      </a>
+    </div>
+    <div class="container container-full octave-api-container">
+      <?php 
+        foreach (get_octave_api_endpoints() as $key => $endpoint) {
+          ?>
+            <div class="card container-full">
+              <div class="container card-title">
+                <img class="icon icon-mini icon-opacity" src="./assets/icons/link.svg" alt="Icon" />
+                <h3><?php echo $endpoint->title[$lang]; ?></h3>
+              </div>
+              <div class="card-box">
+                <div class="box-method <?php echo ($endpoint->method === 'POST' ? 'border-error' : 'border-secondary'); ?>">
+                  <span class="text-method"><?php echo $endpoint->method; ?></span>
+                </div>
+                <div class="box-url">
+                  <span class="text-url"><?php echo $endpoint->url; ?></span>
+                </div>
+              </div>
+              <?php 
+                  if (!empty($endpoint->uri_params)) {
+                    echo '<div class="card-params">';
+                    echo '<div class="params-title">' . $language['OCTAVE_API_URI_PARAMS'] . '</div>';
+                    foreach ($endpoint->uri_params as $param => $param_desc) {
+                      echo '<div class="param-row">';
+                      echo '<span>' . $param . '</span>';
+                      echo '<span>' . $param_desc[$lang] . '</span>';
+                      echo '</div>';
+                    }
+                    echo '</div>';
+                  }
+                ?>
+                <?php 
+                  if (!empty($endpoint->body_params)) {
+                    echo '<div class="card-params">';
+                    echo '<div class="params-title">' . $language['OCTAVE_API_BODY_PARAMS'] . '</div>';
+                    foreach ($endpoint->body_params as $param => $param_desc) {
+                      echo '<div class="param-row">';
+                      echo '<span>' . $param . '</span>';
+                      echo '<span>' . $param_desc[$lang] . '</span>';
+                      echo '</div>';
+                    }
+                    echo '</div>';
+                  }
+                ?>
+            </div>
+          <?php
+        }
+      ?>
+    </div>
   </main>
 </body>
 </html>

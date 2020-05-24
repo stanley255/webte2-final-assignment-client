@@ -17,6 +17,6 @@
     );
 
     die();
-  }
+  } 
 
   require_once(__ROOT__ . '/api/not-found.php');

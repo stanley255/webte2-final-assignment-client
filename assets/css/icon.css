@@ -24,6 +24,24 @@
   margin: 0 1em;
 }
 
+.icon-opacity {
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.icon-opacity:hover {
+  opacity: 1;
+}
+
+.icon-file {
+  transition: transform 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.icon-file:hover {
+  transform: scale(1.05);
+}
+
 .icon-flag {
   width: 30px;
   height: 20px;
