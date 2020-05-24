@@ -40,21 +40,11 @@
 }
 
 .group-container {
+  display: grid;
+  grid-template-columns: calc(50% - 1em) calc(50% - 1em);
+  column-gap: 2em;
   width: 100%;
   margin: 2em 0;
-}
-
-.group-container > div {
-  width: 48%;
-  margin: 0 0.5%;
-}
-
-.group-container .graph-container {
-  margin-right: 2em;
-}
-
-.graph-container {
-  width: 100%;
 }
 
 .experiment {
@@ -71,16 +61,8 @@
   }
 
   .group-container {
-    flex-direction: column;
-  }
-
-  .group-container > div {
-    width: 100%;
-    margin: 0;
-  }
-
-  .group-container > div:first-child {
-    margin-bottom: 2em;
+    grid-template-columns: 100%;
+    row-gap: 2em;
   }
 }
 

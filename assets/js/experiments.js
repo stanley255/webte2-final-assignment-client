@@ -64,12 +64,14 @@ const getCurrentExperiment = () => {
 const setCurrentExperiment = async (experiment) => {
   $(`.${getCurrentExperiment()}`).addClass('hidden');
   $('main').attr({ id: experiment });
-  $(`.${getCurrentExperiment()}`).removeClass('hidden');
 
+  // Start loading
   const response = await getLatestInput(getCurrentExperiment());
   if (response.r) onInputRangeChange({ target: { value: response.r } });
+  // End loading
 
   initExperiment();
+  $(`.${getCurrentExperiment()}`).removeClass('hidden');
 };
 
 const onInputRangeChange = (e) => {

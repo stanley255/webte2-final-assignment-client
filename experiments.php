@@ -85,7 +85,7 @@
               }
             ?>
           </ul>
-          <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'experiments.php'; ?>" class="nav-link"><?php echo $language['HEADER_MENU_2']; ?></a>
+          <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'experiments.php'; ?>" class="nav-link link-active"><?php echo $language['HEADER_MENU_2']; ?></a>
         </div>
         <span class="delimeter"></span>
       </div>
@@ -147,11 +147,11 @@
                 <input type="text" id="input-range-label-<?php echo $value->name; ?>" class="input-range-label" value="0" />
               </div>
             </div>
-            <div class="container group-container">
+            <div class="group-container">
               <div class="container graph-container">
                <canvas id="line-chart-<?php echo $value->name; ?>" width="800" height="450"></canvas>
               </div>
-              <div id="experiment-visualization-<?php echo $value->name; ?>" class="container container-full experiment"></div>
+              <div id="experiment-visualization-<?php echo $value->name; ?>" class="container experiment"></div>
             </div>
           </div>
         </div>
