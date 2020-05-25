@@ -149,7 +149,7 @@
   margin: 0 1em;
 }
 
-.container-export-icons .icon:first-child {
+.container-export-icons > a:first-child > .icon {
   margin-right: 1em;
 }
 
@@ -189,7 +189,7 @@
     margin: 0 0.5em;
   }
 
-  .container-export-icons .icon:first-child {
+  .container-export-icons > a:first-child > .icon {
     margin-right: 0.5em;
   }
 }
