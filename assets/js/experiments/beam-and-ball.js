@@ -2,9 +2,10 @@ import Experiment from './experiment.js';
 import EXPERIMENTS from '../helpers/experiments.js';
 
 class BeamAndBall extends Experiment {
-  constructor() {
+  constructor(timeout = 0) {
     super(EXPERIMENTS.ballOnStick.svg);
     this.layers = EXPERIMENTS.ballOnStick.layers;
+    this.timeout = timeout;
     super.loadObject('ballOnStick');
   }
 
@@ -12,7 +13,7 @@ class BeamAndBall extends Experiment {
     for (let record of octaveData.content) {
       this.moveBallAbsolute(record.y);
       this.rotatePlatformAbsolute(record.angle);
-      await new Promise((r) => setTimeout(r, 50));
+      await new Promise((r) => setTimeout(r, this.timeout));
     }
   }
 

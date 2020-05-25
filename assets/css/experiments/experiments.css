@@ -34,9 +34,7 @@
 
 .content-title > h3 {
   margin: 0 1em;
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
+  white-space: pre-wrap;
 }
 
 .group-container {
@@ -54,6 +52,14 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .content-title > h1 {
+    margin: 0 0.5em;
+  }
+
+  .content-title > h3 {
+    margin: 0 0.5em;
+  }
+
   .experiment-header {
     grid-template-columns: 1fr 1fr;
     margin: 0 2em 2em 2em;
@@ -69,5 +75,8 @@
 @media only screen and (max-width: 600px) {
   .experiment-header {
     grid-template-columns: 1fr;
+    margin: 0 1em 1em 1em;
+    padding: 1em;
+    row-gap: 1em;
   }
 }

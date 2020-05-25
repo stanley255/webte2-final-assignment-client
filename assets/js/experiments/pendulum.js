@@ -2,7 +2,7 @@ import Experiment from './experiment.js';
 import EXPERIMENTS from '../helpers/experiments.js';
 
 class Pendulum extends Experiment {
-  constructor() {
+  constructor(timeout = 0) {
     super(EXPERIMENTS.inversePendulum.svg);
     this.layers = EXPERIMENTS.inversePendulum.layers;
     this.basePosition = {
@@ -10,6 +10,7 @@ class Pendulum extends Experiment {
       y: 0,
     };
     this.angle = 0;
+    this.timeout = timeout;
     // $(this.layers.ballAndStick).css("transform-origin", "15px 0px");
     super.loadObject('inversePendulum');
   }
@@ -18,7 +19,7 @@ class Pendulum extends Experiment {
     for (let record of octaveData.content) {
       this.moveBaseAbsolute(record.y);
       this.rotateBallAndStickAbsolute(record.angle);
-      await new Promise((r) => setTimeout(r, 50));
+      await new Promise((r) => setTimeout(r, this.timeout));
     }
   }
 

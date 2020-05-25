@@ -26,6 +26,9 @@
   $language['OCTAVE_API_PAGE_TITLE'] = 'Octave API referencia';
   $language['OCTAVE_API_URI_PARAMS'] = 'URI parametre';
   $language['OCTAVE_API_BODY_PARAMS'] = 'Body parametre';
+  $language['OCTAVE_API_RESPONSE_BODY'] = 'Telo odpovede';
+  $language['OCTAVE_API_EXPORT_SUBTITLE'] = 'Export záznamov';
+  $language['OCTAVE_API_LOG'] = 'Záznam';
 
   //CONTACT PAGE
   $language['CONTANT_PAGE_TITLE'] = 'Projekt vytvorili';

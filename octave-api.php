@@ -35,6 +35,7 @@
   <!-- JS -->
   <script src="./assets/js/jquery.min.js"></script>
   <script defer src="./assets/js/main.js" type="module"></script>
+  <script defer src="./assets/js/octave-api.js" type="module"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/normalize.css">
@@ -107,8 +108,8 @@
         <img class="icon icon-big" src="./assets/icons/api.svg" alt="Icon" />
         <h1><?php echo $language['OCTAVE_API_PAGE_TITLE']; ?></h1>
       </div>
-      <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'helpers/pdf.php?pdf=octave'; ?>" target="_blank">
-        <img id="pdf-file" class="icon icon-file" src="./assets/icons/pdf.svg" alt="Icon" />
+      <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . '/pdf.php?pdf=octave'; ?>" target="_blank" title="PDF">
+        <img class="icon icon-hover" src="./assets/icons/pdf.svg" alt="Icon" />
       </a>
     </div>
     <div class="container container-full octave-api-container">
@@ -129,35 +130,56 @@
                 </div>
               </div>
               <?php 
-                  if (!empty($endpoint->uri_params)) {
-                    echo '<div class="card-params">';
-                    echo '<div class="params-title">' . $language['OCTAVE_API_URI_PARAMS'] . '</div>';
-                    foreach ($endpoint->uri_params as $param => $param_desc) {
-                      echo '<div class="param-row">';
-                      echo '<span>' . $param . '</span>';
-                      echo '<span>' . $param_desc[$lang] . '</span>';
-                      echo '</div>';
-                    }
+                if (!empty($endpoint->uri_params)) {
+                  echo '<div class="card-params">';
+                  echo '<div class="params-title">' . $language['OCTAVE_API_URI_PARAMS'] . '</div>';
+                  foreach ($endpoint->uri_params as $param => $param_desc) {
+                    echo '<div class="param-row">';
+                    echo '<span>' . $param . '</span>';
+                    echo '<span>' . $param_desc[$lang] . '</span>';
                     echo '</div>';
                   }
-                ?>
-                <?php 
-                  if (!empty($endpoint->body_params)) {
-                    echo '<div class="card-params">';
-                    echo '<div class="params-title">' . $language['OCTAVE_API_BODY_PARAMS'] . '</div>';
-                    foreach ($endpoint->body_params as $param => $param_desc) {
-                      echo '<div class="param-row">';
-                      echo '<span>' . $param . '</span>';
-                      echo '<span>' . $param_desc[$lang] . '</span>';
-                      echo '</div>';
-                    }
+                  echo '</div>';
+                }
+              ?>
+              <?php 
+                if (!empty($endpoint->body_params)) {
+                  echo '<div class="card-params">';
+                  echo '<div class="params-title">' . $language['OCTAVE_API_BODY_PARAMS'] . '</div>';
+                  foreach ($endpoint->body_params as $param => $param_desc) {
+                    echo '<div class="param-row">';
+                    echo '<span>' . $param . '</span>';
+                    echo '<span>' . $param_desc[$lang] . '</span>';
                     echo '</div>';
                   }
-                ?>
+                  echo '</div>';
+                }
+              ?>
+              <div class="box-response">
+                <div class="container container-full container-space">
+                  <h4 class="response-title"><?php echo $language['OCTAVE_API_RESPONSE_BODY']; ?></h4>
+                  <img id="icon-arrow-<?php echo $key; ?>" class="icon icon-small icon-hover icon-arrow" src="./assets/icons/arrow-down.svg" alt="Icon" />
+                </div>
+                <pre id="text-response-<?php echo $key; ?>" class="text-response"><?php echo json_encode($endpoint->response, JSON_PRETTY_PRINT); ?></pre>
+              </div>
             </div>
           <?php
         }
       ?>
+    </div>
+    <div class="container container-full container-space container-logs">
+      <div class="container">
+       <img class="icon icon-small" src="./assets/icons/export.svg" alt="Icon" />
+        <h3><?php echo $language['OCTAVE_API_EXPORT_SUBTITLE']; ?></h3>
+      </div>
+      <div class="container-export-icons">
+        <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . '/csv.php?csv=logs'; ?>" target="_blank" title="CSV">
+          <img class="icon icon-hover" src="./assets/icons/csv.svg" alt="Icon" />
+        </a>
+        <a href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . '/pdf.php?pdf=logs'; ?>" target="_blank" title="PDF">
+          <img class="icon icon-hover" src="./assets/icons/pdf.svg" alt="Icon" />
+        </a>
+      </div>
     </div>
   </main>
 </body>

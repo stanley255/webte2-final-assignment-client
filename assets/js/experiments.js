@@ -11,6 +11,7 @@ import Plane from './experiments/plane.js';
 
 let CURRENT_EXPERIMENT;
 let CHART;
+let EXPERIMENT_TIMEOUT;
 
 const createEmptyLineChart = () => {
   const currExp = getCurrentExperiment();
@@ -48,10 +49,10 @@ const createEmptyLineChart = () => {
 
 const createExperimentObject = () => {
   let experimentObjectsByName = {
-    inversePendulum: new Pendulum(),
-    ballOnStick: new BeamAndBall(),
-    carShockAbsorber: new Car(),
-    aircraftTilt: new Plane(),
+    inversePendulum: new Pendulum(EXPERIMENT_TIMEOUT),
+    ballOnStick: new BeamAndBall(EXPERIMENT_TIMEOUT),
+    carShockAbsorber: new Car(EXPERIMENT_TIMEOUT),
+    aircraftTilt: new Plane(EXPERIMENT_TIMEOUT),
   };
 
   return experimentObjectsByName[getCurrentExperiment()];
@@ -114,7 +115,7 @@ const addDataToPlot = async (octaveData) => {
     } else {
       CHART.data.datasets[1].data.push(record.angle);
     }
-    await new Promise((r) => setTimeout(r, 50));
+    await new Promise((r) => setTimeout(r, EXPERIMENT_TIMEOUT));
 
     CHART.update();
   }
@@ -170,6 +171,11 @@ const initExperimentButtons = () => {
   });
 };
 
+const initExperimentTimeout = () => {
+  EXPERIMENT_TIMEOUT = $('#experiment-timeout').val() || 0;
+};
+
+initExperimentTimeout();
 initExperimentButtons();
 initInputRanges();
 setCurrentExperiment(getCurrentExperiment());

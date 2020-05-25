@@ -24,6 +24,11 @@
   margin: 0 1em;
 }
 
+.icon-rot-180 {
+  transform: rotate(180deg) !important;
+  transition: transform 0.3 ease-in-out;
+}
+
 .icon-opacity {
   opacity: 0.6;
   transition: opacity 0.2s ease-in-out;
@@ -33,12 +38,12 @@
   opacity: 1;
 }
 
-.icon-file {
+.icon-hover {
   transition: transform 0.1s ease-in-out;
   cursor: pointer;
 }
 
-.icon-file:hover {
+.icon-hover:hover {
   transform: scale(1.05);
 }
 

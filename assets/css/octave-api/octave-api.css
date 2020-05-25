@@ -30,7 +30,7 @@
 }
 
 .card-title > h3 {
-  margin: 0 0 0 1em;
+  margin: 0 1em;
 }
 
 .card-box {
@@ -60,16 +60,14 @@
   padding: 1em 2em;
   background-color: var(--off-white);
   border-radius: 8px;
-  overflow: hidden !important;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .text-url {
   color: var(--blue);
   font-weight: bold;
   font-size: 14px;
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
 }
 
 .card-params {
@@ -108,7 +106,58 @@
   text-overflow: ellipsis;
 }
 
+.box-response {
+  padding: 1em 2em;
+  background-color: var(--fine-blue);
+  border-radius: 8px;
+  margin-bottom: 1em;
+}
+
+.response-title {
+  margin: 0;
+}
+
+.text-response {
+  overflow-x: auto;
+  margin: 0;
+  font-size: 14px;
+  height: 0;
+  opacity: 0;
+}
+
+.slide-down {
+  height: 100%;
+  opacity: 1;
+  padding: 1em 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.slide-up {
+  height: 0;
+  opacity: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.container-logs {
+  margin-top: 1em;
+  padding-top: 2em;
+  border-top: 1px solid var(--fine-blue);
+}
+
+.container-logs h3 {
+  margin: 0 1em;
+}
+
+.container-export-icons .icon:first-child {
+  margin-right: 1em;
+}
+
 @media only screen and (max-width: 900px) {
+  .content-title > h1 {
+    margin: 0 0.5em;
+  }
+
   .card-box {
     grid-template-columns: 60px 1fr;
     column-gap: 1em;
@@ -126,5 +175,21 @@
     grid-template-columns: 80px 1fr;
     column-gap: 0.5em;
     padding: 0.5em 1em;
+  }
+
+  .box-response {
+    padding: 1em;
+  }
+
+  .card-title > h3 {
+    margin: 0 0.5em;
+  }
+
+  .container-logs h3 {
+    margin: 0 0.5em;
+  }
+
+  .container-export-icons .icon:first-child {
+    margin-right: 0.5em;
   }
 }

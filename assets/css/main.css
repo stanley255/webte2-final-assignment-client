@@ -5,6 +5,7 @@
   --off-blue: #a3b2c3;
   --fine-blue: #d1d9e1;
   --off-white: #f0f0f0;
+  --light-gray: #e2e2e2;
   --white: #fff;
   --yellow: #ffc733;
   --red: #ff5752;
@@ -141,5 +142,12 @@ a {
   main {
     margin: 0 2em;
     padding: 2em 1.5em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  main {
+    margin: 0 1em;
+    padding: 1.5em 1em;
   }
 }

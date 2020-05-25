@@ -123,7 +123,7 @@
       </div>
     </div>
     <div class="container content-container">
-      <div class="container content-title">
+      <div class="container content-title"> 
         <img class="icon icon-big" src="./assets/icons/statistics.svg" alt="Icon" />
         <h3><?php echo $language['HOME_PAGE_TITLE_2']; ?></h3>
       </div>

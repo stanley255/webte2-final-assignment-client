@@ -167,9 +167,14 @@
       'sk' => 'Pošli Octave príkaz',
       'en' => 'Send an Octave command'
     );
-    $console_command->url = 'http://147.175.121.210:8043/api/console';
+    $console_command->url = 'http://52.233.133.56/api/console?api-key=<span class="primary">{apiKey}</span>';
     $console_command->method = 'POST';
-    $console_command->uri_params = array();
+    $console_command->uri_params = array(
+      'apiKey' => array(
+        'sk' => 'Tajný autentifikačný token používateľa',
+        'en' => 'Secret authentication token of user'
+      ),
+    );
     $console_command->body_params = array(
       'session' => array(
         'sk' => 'Session ID používateľa',
@@ -180,23 +185,56 @@
         'en' => 'Octave command'
       )
     );
+    $console_command->response = array(
+      'session' => 'j057t7hrv9d71p1vt1b010e080',
+      'output' => array(
+        '1 3',
+        '2 2',
+        '3 1',
+      )
+    );
 
     $all_experiments = new stdClass();
     $all_experiments->title = array(
       'sk' => 'Získaj všetky experimenty',
       'en' => 'List all Experiments'
     );
-    $all_experiments->url = 'http://147.175.121.210:8043/api/experiments';
+    $all_experiments->url = 'http://52.233.133.56/api/experiments?api-key=<span class="primary">{apiKey}</span>';
     $all_experiments->method = 'GET';
-    $all_experiments->uri_params = array();
+    $all_experiments->uri_params = array(
+      'apiKey' => array(
+        'sk' => 'Tajný autentifikačný token používateľa',
+        'en' => 'Secret authentication token of user'
+      ),
+    );
     $all_experiments->body_params = array();
+    $all_experiments->response = array(
+      'experiments' => array(
+        array(
+          'experiment' => 'Inverted Pendulum',
+          'endpoint' => '/experiments/pendulum',
+        ),
+        array(
+          'experiment' => 'Ball Beam',
+          'endpoint' => '/experiments/ball',
+        ),
+        array(
+          'experiment' => 'Car Suspension',
+          'endpoint' => '/experiments/suspension',
+        ),
+        array(
+          'experiment' => 'Aircraft Pitch',
+          'endpoint' => '/experiments/aircraft',
+        )
+      )
+    );
 
     $inverted_pendulum = new stdClass();
     $inverted_pendulum->title = array(
       'sk' => 'Získaj dáta prevráteného kyvadla',
       'en' => 'Get inverted pendulum data'
     );
-    $inverted_pendulum->url = 'http://147.175.121.210:8043/api/experiments/pendulum?session={sessionID}&r={r}';
+    $inverted_pendulum->url = 'http://52.233.133.56/api/experiments/pendulum?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
     $inverted_pendulum->method = 'GET';
     $inverted_pendulum->uri_params = array(
       'sessionID' => array(
@@ -206,16 +244,31 @@
       'r' => array(
         'sk' => 'Číselná hodnota vstupu používateľa',
         'en' => 'Numeric value of user\'s input'
-      )
+      ),
+      'apiKey' => array(
+        'sk' => 'Tajný autentifikačný token používateľa',
+        'en' => 'Secret authentication token of user'
+      ),
     );
     $inverted_pendulum->body_params = array();
+    $inverted_pendulum->response = array(
+      'experiment' => 'Inverted Pendulum',
+      'session' => 'j057t7hrv9d71p1vt1b010e080',
+      'data' => array(
+        array(
+          'x' => 420,
+          'y' => 420,
+          'angle' => 69
+        )
+      )
+    );
 
     $ball_beam = new stdClass();
     $ball_beam->title = array(
       'sk' => 'Získaj dáta guličky na tyči',
       'en' => 'Get ball beam data'
     );
-    $ball_beam->url = 'http://147.175.121.210:8043/api/experiments/ball?session={sessionID}&r={r}';
+    $ball_beam->url = 'http://52.233.133.56/api/experiments/ball?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
     $ball_beam->method = 'GET';
     $ball_beam->uri_params = array(
       'sessionID' => array(
@@ -225,16 +278,31 @@
       'r' => array(
         'sk' => 'Číselná hodnota vstupu používateľa',
         'en' => 'Numeric value of user\'s input'
-      )
+      ),
+      'apiKey' => array(
+        'sk' => 'Tajný autentifikačný token používateľa',
+        'en' => 'Secret authentication token of user'
+      ),
     );
     $ball_beam->body_params = array();
+    $ball_beam->response = array(
+      'experiment' => 'Ball Beam',
+      'session' => 'j057t7hrv9d71p1vt1b010e080',
+      'data' => array(
+        array(
+          'x' => 420,
+          'y' => 420,
+          'angle' => 69
+        )
+      )
+    );
 
     $car_suspension = new stdClass();
     $car_suspension->title = array(
       'sk' => 'Získaj dáta tlmiča kolesa',
       'en' => 'Get car suspension data'
     );
-    $car_suspension->url = 'http://147.175.121.210:8043/api/experiments/suspension?session={sessionID}&r={r}';
+    $car_suspension->url = 'http://52.233.133.56/api/experiments/suspension?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
     $car_suspension->method = 'GET';
     $car_suspension->uri_params = array(
       'sessionID' => array(
@@ -244,16 +312,31 @@
       'r' => array(
         'sk' => 'Číselná hodnota vstupu používateľa',
         'en' => 'Numeric value of user\'s input'
-      )
+      ),
+      'apiKey' => array(
+        'sk' => 'Tajný autentifikačný token používateľa',
+        'en' => 'Secret authentication token of user'
+      ),
     );
     $car_suspension->body_params = array();
+    $car_suspension->response = array(
+      'experiment' => 'Car Suspension',
+      'session' => 'j057t7hrv9d71p1vt1b010e080',
+      'data' => array(
+        array(
+          'x' => 420,
+          'y' => 420,
+          'bodyworkHeight' => 69
+        )
+      )
+    );
 
     $aircraft_pitch = new stdClass();
     $aircraft_pitch->title = array(
       'sk' => 'Získaj dáta náklonu lietadla',
       'en' => 'Get aircraft pitch data'
     );
-    $aircraft_pitch->url = 'http://147.175.121.210:8043/api/experiments/aircraft?session={sessionID}&r={r}';
+    $aircraft_pitch->url = 'http://52.233.133.56/api/experiments/aircraft?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
     $aircraft_pitch->method = 'GET';
     $aircraft_pitch->uri_params = array(
       'sessionID' => array(
@@ -263,29 +346,111 @@
       'r' => array(
         'sk' => 'Číselná hodnota vstupu používateľa',
         'en' => 'Numeric value of user\'s input'
-      )
+      ),
+      'apiKey' => array(
+        'sk' => 'Tajný autentifikačný token používateľa',
+        'en' => 'Secret authentication token of user'
+      ),
     );
     $aircraft_pitch->body_params = array();
+    $aircraft_pitch->response = array(
+      'experiment' => 'Aircraft Pitch',
+      'session' => 'j057t7hrv9d71p1vt1b010e080',
+      'data' => array(
+        array(
+          'x' => 420,
+          'y' => 420,
+          'rearFlapAngle' => 69
+        )
+      )
+    );
 
     $all_logs = new stdClass();
     $all_logs->title = array(
       'sk' => 'Získaj všetky zalogované súbory',
       'en' => 'List all log files'
     );
-    $all_logs->url = 'http://147.175.121.210:8043/api/logs';
+    $all_logs->url = 'http://52.233.133.56/api/logs?api-key=<span class="primary">{apiKey}</span>';
     $all_logs->method = 'GET';
-    $all_logs->uri_params = array();
+    $all_logs->uri_params = array(
+      'apiKey' => array(
+        'sk' => 'Tajný autentifikačný token používateľa',
+        'en' => 'Secret authentication token of user'
+      ),
+    );
     $all_logs->body_params = array();
+    $all_logs->response = array(
+      'logs' => array(
+        array(
+          'timestamp' => '2020-01-01 10:10:10',
+          'command' => 'console',
+          'session' => 'j057t7hrv9d71p1vt1b010e080',
+          'status' => 'success',
+          'info' => 'Operation was successfull',
+        )
+      )
+    );
+
+    $last_input = new stdClass();
+    $last_input->title = array(
+      'sk' => 'Získaj posledný vstup experimentu',
+      'en' => 'Get last input of experiment'
+    );
+    $last_input->url = 'http://52.233.133.56/api/logs?experiment=<span class="primary">{experiment}</span>&session=<span class="primary">{sessionID}</span>&api-key=<span class="primary">{apiKey}</span>';
+    $last_input->method = 'GET';
+    $last_input->uri_params = array(
+      'experiment' => array(
+        'sk' => 'Názov experimentu',
+        'en' => 'Experiment name'
+      ),
+      'sessionID' => array(
+        'sk' => 'Session ID používateľa',
+        'en' => 'User\'s session ID'
+      ),
+      'apiKey' => array(
+        'sk' => 'Tajný autentifikačný token používateľa',
+        'en' => 'Secret authentication token of user'
+      ),
+    );
+    $last_input->body_params = array();
+    $last_input->response = array(
+      'r' => 0
+    );
 
     $statistics = new stdClass();
     $statistics->title = array(
       'sk' => 'Získaj štatistiky',
       'en' => 'Get Statistics'
     );
-    $statistics->url = 'http://147.175.121.210:8043/api/stats';
+    $statistics->url = 'http://52.233.133.56/api/stats?api-key=<span class="primary">{apiKey}</span>';
     $statistics->method = 'GET';
-    $statistics->uri_params = array();
+    $statistics->uri_params = array(
+      'apiKey' => array(
+        'sk' => 'Tajný autentifikačný token používateľa',
+        'en' => 'Secret authentication token of user'
+      ),
+    );
     $statistics->body_params = array();
+    $statistics->response = array(
+      'stats' => array(
+        array(
+          'experiment' => 'Inverted Pendulum',
+          'count' => 1
+        ),
+        array(
+          'experiment' => 'Ball Beam',
+          'count' => 1
+        ),
+        array(
+          'experiment' => 'Car Suspension',
+          'count' => 1
+        ),
+        array(
+          'experiment' => 'Aircraft Pitch',
+          'count' => 1
+        )
+      )
+    );
 
-    return array($console_command, $all_experiments, $inverted_pendulum, $ball_beam, $car_suspension, $aircraft_pitch, $all_logs, $statistics);
+    return array($console_command, $all_experiments, $inverted_pendulum, $ball_beam, $car_suspension, $aircraft_pitch, $all_logs, $last_input, $statistics);
   }

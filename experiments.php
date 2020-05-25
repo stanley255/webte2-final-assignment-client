@@ -5,6 +5,8 @@
   define('__ROOT__', dirname(__FILE__));
   define('__SCRIPT_NAME__', basename($_SERVER['SCRIPT_FILENAME']));
 
+  require_once(__ROOT__ . '/config.php');
+
   require_once(__ROOT__ . '/helpers/path.php');
   require_once(__ROOT__ . '/helpers/string.php');
   require_once(__ROOT__ . '/helpers/content.php');
@@ -123,7 +125,7 @@
   <main id="<?php echo $experiment; ?>">
     <?php 
       foreach ($experiments as $key => $value) {
-        ?>
+        ?> 
         <div class="hidden <?php echo $value->name; ?>">
           <div class="container content-container container-title">
             <div class="container content-title">
@@ -159,5 +161,6 @@
       }
     ?>
   </main>
+  <input id="experiment-timeout" type="hidden" value="<?php echo $GLOBALS['experiment_timeout']; ?>">
 </body>
 </html>

@@ -85,6 +85,12 @@ a.text-info:hover {
   }
 }
 
+@media only screen and (max-width: 900px) {
+  .content-title > h1 {
+    margin: 0 0.5em;
+  }
+}
+
 @media only screen and (max-width: 720px) {
   .contact-container {
     grid-template-columns: 1fr;

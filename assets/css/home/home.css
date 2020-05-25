@@ -14,9 +14,7 @@
 
 .content-title > h3 {
   margin: 0 1em;
-  white-space: nowrap;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
+  white-space: pre-wrap;
 }
 
 .command-line {
@@ -97,6 +95,10 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .content-title > h3 {
+    margin: 0 0.5em;
+  }
+
   .stats-container {
     flex-direction: column;
   }

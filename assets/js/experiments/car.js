@@ -3,7 +3,7 @@ import EXPERIMENTS from '../helpers/experiments.js';
 import { radToDeg } from '../helpers/experiments.js';
 
 class Car extends Experiment {
-  constructor() {
+  constructor(timeout = 0) {
     super(EXPERIMENTS.carShockAbsorber.svg);
     this.layers = EXPERIMENTS.carShockAbsorber.layers;
     this.carPosition = {
@@ -14,6 +14,7 @@ class Car extends Experiment {
       x: 0,
       y: 0,
     };
+    this.timeout = timeout;
     super.loadObject('carShockAbsorber');
   }
 
@@ -21,7 +22,7 @@ class Car extends Experiment {
     for (let record of octaveData.content) {
       this.moveTierAbsolute(-record.y);
       this.moveCarAbsolute(record.bodyworkHeight);
-      await new Promise((r) => setTimeout(r, 50));
+      await new Promise((r) => setTimeout(r, this.timeout));
     }
   }
 

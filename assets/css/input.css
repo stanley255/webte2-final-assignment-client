@@ -4,6 +4,7 @@
 }
 
 .input {
+  opacity: 0.9;
   border: none;
   padding: 0.8em 2em;
   border-radius: 4px;
@@ -15,6 +16,12 @@
     rgba(226, 226, 224, 1) 100%
   );
   outline: none;
+  transition: opacity 0.1 ease-in-out;
+}
+
+.input:hover,
+.input:focus {
+  opacity: 1;
 }
 
 .input:disabled {
@@ -92,4 +99,18 @@
   height: 10px;
   background-color: var(--dark-blue);
   transform: translateY(-50%) rotate(45deg);
+}
+
+@media only screen and (max-width: 600px) {
+  .input {
+    padding: 0.8em 1em;
+  }
+
+  .input-range {
+    padding: 0;
+  }
+
+  .input-with-icon {
+    padding-left: 3em;
+  }
 }

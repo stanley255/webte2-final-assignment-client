@@ -191,7 +191,17 @@
     display: none !important;
   }
 
-  .language-container {
+  .flags-container {
     padding: 2em 2em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header-container {
+    padding: 1em;
+  }
+
+  .flags-container {
+    padding: 2em 1em;
   }
 }
