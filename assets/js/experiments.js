@@ -66,12 +66,18 @@ const setCurrentExperiment = async (experiment) => {
   $(`.${getCurrentExperiment()}`).addClass('hidden');
   $('main').attr({ id: experiment });
 
+  initExperiment();
+
   // Start loading
   const response = await getLatestInput(getCurrentExperiment());
-  if (response.r) onInputRangeChange({ target: { value: response.r } });
+  if (response.r) {
+    CURRENT_EXPERIMENT.runAnimation({
+      content: [response.lastPosition]
+    });
+    onInputRangeChange({ target: { value: response.r } });
+  }
   // End loading
 
-  initExperiment();
   $(`.${getCurrentExperiment()}`).removeClass('hidden');
 };
 
