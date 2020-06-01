@@ -51,6 +51,7 @@ export default {
       en: ['Pendulum position', 'Deflection (radians)'],
     },
     endpoint: 'pendulum',
+    octaveDataLabels: ["x", "y", "angle"],
     regex: /^-?([0-9]$|^-?[1-9][0-9]$|^-?[1][0]{2})?$/m,
   },
   ballOnStick: {
@@ -64,10 +65,11 @@ export default {
       en: ['Ball position', 'Rod angle'],
     },
     endpoint: 'ball',
-    regex: /^[0](\.\d{0,2})?$|^[1]{1}$/m,
+    octaveDataLabels: ["x", "y", "angle"],
+    regex: /^(-[1-9]|-?[1-9][0-9]|-?1[0-5][0-9]|-?16[0-5]|[0-9])?$/m,
   },
   carShockAbsorber: {
-    svg: './assets/svg/car.svg',
+    svg: './assets/svg/car_new.svg',
     layers: {
       body: '#car-body',
       wheel: '#wheel',
@@ -77,6 +79,7 @@ export default {
       en: ['Wheel height', 'Car height'],
     },
     endpoint: 'suspension',
+    octaveDataLabels: ["x", "y", "bodyworkHeight"],
     regex: /^[0-9](\.\d{0,1})?$|^[1][0]{1}$/m,
   },
   aircraftTilt: {
@@ -90,6 +93,7 @@ export default {
       en: ['Tilt of the aircraft (radians)', 'Tilt of the rear flap (radians)'],
     },
     endpoint: 'aircraft',
+    octaveDataLabels: ["x", "y", "rearFlapAngle"],
     regex: /^[0](\.\d{0,2})?$|^[1]{1}$/m,
   },
 };

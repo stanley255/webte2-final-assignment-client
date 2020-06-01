@@ -85,7 +85,7 @@ const onInputRangeChange = (e) => {
   const { value } = e.target;
   const regex = EXPERIMENTS[getCurrentExperiment()].regex;
 
-  if (!regex.test(value)) return;
+  // if (!regex.test(value)) return;
 
   $(`#input-range-label-${getCurrentExperiment()}`).val(value);
   $(`#input-range-${getCurrentExperiment()}`).val(value);
@@ -113,14 +113,11 @@ const onInputRangeRelease = async (e) => {
 };
 
 const addDataToPlot = async (octaveData) => {
+  let labels = EXPERIMENTS[getCurrentExperiment()].octaveDataLabels;
   for (let record of octaveData.content) {
-    CHART.data.labels.push(record.x);
-    CHART.data.datasets[0].data.push(record.y);
-    if (record.bodyworkHeight) {
-      CHART.data.datasets[1].data.push(record.bodyworkHeight);
-    } else {
-      CHART.data.datasets[1].data.push(record.angle);
-    }
+    CHART.data.labels.push(record[labels[0]]);
+    CHART.data.datasets[0].data.push(record[labels[1]]);
+    CHART.data.datasets[1].data.push(record[labels[2]]);
     await new Promise((r) => setTimeout(r, EXPERIMENT_TIMEOUT));
 
     CHART.update();
@@ -131,9 +128,9 @@ const onInputRangeLabelChange = (e) => {
   const regex = EXPERIMENTS[getCurrentExperiment()].regex;
   let { value } = e.target;
 
-  if (!regex.test(value)) {
-    value = value.slice(0, -1);
-  }
+  // if (!regex.test(value)) {
+  //   value = value.slice(0, -1);
+  // }
 
   $(e.target).val(value);
   $(`#input-range-${getCurrentExperiment()}`).val(value);
