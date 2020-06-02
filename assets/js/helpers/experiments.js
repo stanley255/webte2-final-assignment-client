@@ -51,7 +51,7 @@ export default {
       en: ['Pendulum position', 'Deflection (radians)'],
     },
     endpoint: 'pendulum',
-    octaveDataLabels: ["x", "y", "angle"],
+    octaveDataLabels: ['x', 'y', 'angle'],
     regex: /^-?([0-9]$|^-?[1-9][0-9]$|^-?[1][0]{2})?$/m,
   },
   ballOnStick: {
@@ -65,7 +65,7 @@ export default {
       en: ['Ball position', 'Rod angle'],
     },
     endpoint: 'ball',
-    octaveDataLabels: ["x", "y", "angle"],
+    octaveDataLabels: ['x', 'y', 'angle'],
     regex: /^(-[1-9]|-?[1-9][0-9]|-?1[0-5][0-9]|-?16[0-5]|[0-9])?$/m,
   },
   carShockAbsorber: {
@@ -79,13 +79,13 @@ export default {
       en: ['Wheel height', 'Car height'],
     },
     endpoint: 'suspension',
-    octaveDataLabels: ["x", "y", "bodyworkHeight"],
+    octaveDataLabels: ['x', 'y', 'bodyworkHeight'],
     regex: /^[0-9](\.\d{0,1})?$|^[1][0]{1}$/m,
   },
   aircraftTilt: {
     svg: './assets/svg/plane.svg',
     layers: {
-      body: '#plane\\ 1',
+      body: '#plane-container',
       flap: '#flap',
     },
     labels: {
@@ -93,7 +93,7 @@ export default {
       en: ['Tilt of the aircraft (radians)', 'Tilt of the rear flap (radians)'],
     },
     endpoint: 'aircraft',
-    octaveDataLabels: ["x", "y", "rearFlapAngle"],
+    octaveDataLabels: ['x', 'y', 'rearFlapAngle'],
     regex: /^[0](\.\d{0,2})?$|^[1]{1}$/m,
   },
 };

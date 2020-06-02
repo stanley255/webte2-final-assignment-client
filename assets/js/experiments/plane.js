@@ -11,7 +11,6 @@ class Plane extends Experiment {
 
   async runAnimation(octaveData) {
     for (let record of octaveData.content) {
-      console.log(record);
       this.rotatePlane(record.y);
       this.rotateFlap(record.rearFlapAngle);
       await new Promise((r) => setTimeout(r, this.timeout));
@@ -23,7 +22,14 @@ class Plane extends Experiment {
   }
 
   rotateFlap(angle) {
-    super.rotate(this.layers.flap, angle);
+    super.rotate(this.layers.flap, angle, false, true);
+
+    // d3.select('#flap').attr('transform', function () {
+    //   const x1 = this.getBBox().x;
+    //   const y1 = this.getBBox().y + this.getBBox().height / 2; //the center y about which you want to rotate
+
+    //   return `rotate(${angle * 57.2957795} ${x1} ${y1})`;
+    // });
   }
 }
 

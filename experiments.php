@@ -44,6 +44,7 @@
   <!-- JS -->
   <script src="./assets/js/jquery.min.js"></script>
   <script src="./assets/js/chart.min.js"></script>
+  <script src="./assets/js/d3.min.js"></script>
   <script defer src="./assets/js/main.js" type="module"></script>
   <script defer src="./assets/js/experiments.js" type="module"></script>
 

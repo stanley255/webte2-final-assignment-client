@@ -1,6 +1,5 @@
 import Experiment from './experiment.js';
 import EXPERIMENTS from '../helpers/experiments.js';
-import { radToDeg } from '../helpers/experiments.js';
 
 class Car extends Experiment {
   constructor(timeout = 0) {

@@ -37,14 +37,18 @@
 
 .line {
   margin-bottom: 0.2em;
+  height: 20px;
 }
 
 .command-desc-txt {
   display: inline-block;
+  height: 100%;
 }
 
 .command-content {
   outline: none;
+  min-width: 120px;
+  height: 100%;
 }
 
 .stats-not-found {

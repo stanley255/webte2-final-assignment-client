@@ -70,15 +70,16 @@ const setCurrentExperiment = async (experiment) => {
 
   // Start loading
   const response = await getLatestInput(getCurrentExperiment());
+  $(`.${getCurrentExperiment()}`).removeClass('hidden');
+
   if (response.r) {
     CURRENT_EXPERIMENT.runAnimation({
-      content: [response.lastPosition]
+      content: [response.lastPosition],
     });
+
     onInputRangeChange({ target: { value: response.r } });
   }
   // End loading
-
-  $(`.${getCurrentExperiment()}`).removeClass('hidden');
 };
 
 const onInputRangeChange = (e) => {
