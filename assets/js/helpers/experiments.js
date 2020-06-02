@@ -41,7 +41,7 @@ export const dictionary = {
 
 export default {
   inversePendulum: {
-    svg: './assets/svg/pendulum_new.svg',
+    svg: './assets/svg/pendulum.svg',
     layers: {
       body: '#pendulum-body',
       ballAndStick: '#ball-and-stick',
@@ -55,7 +55,7 @@ export default {
     regex: /^-?([0-9]$|^-?[1-9][0-9]$|^-?[1][0]{2})?$/m,
   },
   ballOnStick: {
-    svg: './assets/svg/beamAndBall_new.svg',
+    svg: './assets/svg/beamAndBall.svg',
     layers: {
       platform: '#platform',
       ball: '#ball',
@@ -69,7 +69,7 @@ export default {
     regex: /^(-[1-9]|-?[1-9][0-9]|-?1[0-5][0-9]|-?16[0-5]|[0-9])?$/m,
   },
   carShockAbsorber: {
-    svg: './assets/svg/car_new.svg',
+    svg: './assets/svg/car.svg',
     layers: {
       body: '#car-body',
       wheel: '#wheel',
