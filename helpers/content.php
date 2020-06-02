@@ -393,8 +393,8 @@
 
     $last_input = new stdClass();
     $last_input->title = array(
-      'sk' => 'Získaj posledný vstup experimentu',
-      'en' => 'Get last input of experiment'
+      'sk' => 'Získaj posledný vstup a hodnoty experimentu',
+      'en' => 'Get last input and values of experiment'
     );
     $last_input->url = 'http://52.233.133.56/api/logs?experiment=<span class="primary">{experiment}</span>&session=<span class="primary">{sessionID}</span>&api-key=<span class="primary">{apiKey}</span>';
     $last_input->method = 'GET';
@@ -412,9 +412,14 @@
         'en' => 'Secret authentication token of user'
       ),
     );
+    $last_position = new stdClass();
+    $last_position->x = 5;
+    $last_position->y = 4.90037;
+    $last_position->bodyworkHeight = 0.00037;
     $last_input->body_params = array();
     $last_input->response = array(
-      'r' => 0
+      'r' => 0,
+      'lastPosition' => $last_position
     );
 
     $statistics = new stdClass();
