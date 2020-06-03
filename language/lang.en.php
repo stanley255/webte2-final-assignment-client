@@ -11,7 +11,7 @@
 
   // HOME PAGE
   $language['HOME_PAGE_TITLE_1'] = 'Run your first command ...';
-  $language['HOME_PAGE_TITLE_2'] = 'Statistic data of usage our experiments';
+  $language['HOME_PAGE_TITLE_2'] = 'Usage statistics of our experiments';
   $language['HOME_PAGE_MESSAGE_1'] = 'No statistics were found';
   $language['HOME_PAGE_BUTTON_1'] = 'Send';
 
@@ -31,5 +31,5 @@
   $language['OCTAVE_API_LOG'] = 'Log';
 
   //CONTACT PAGE
-  $language['CONTANT_PAGE_TITLE'] = 'Project has been made by';
+  $language['CONTANT_PAGE_TITLE'] = 'This project has been developed by';
 ?>

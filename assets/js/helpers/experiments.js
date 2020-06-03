@@ -43,6 +43,7 @@ export default {
   inversePendulum: {
     svg: './assets/svg/pendulum.svg',
     layers: {
+      platform: '#pendulum-platform',
       body: '#pendulum-body',
       ballAndStick: '#ball-and-stick',
     },
@@ -57,7 +58,7 @@ export default {
   ballOnStick: {
     svg: './assets/svg/beamAndBall.svg',
     layers: {
-      platform: '#platform',
+      platform: '#ball-platform',
       ball: '#ball',
     },
     labels: {

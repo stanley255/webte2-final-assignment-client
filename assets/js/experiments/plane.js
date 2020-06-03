@@ -6,6 +6,18 @@ class Plane extends Experiment {
     super(EXPERIMENTS.aircraftTilt.svg);
     this.layers = EXPERIMENTS.aircraftTilt.layers;
     this.timeout = timeout;
+    this.planeRotationOffsets = {
+      offsetX: true,
+      offsetY: true,
+      centerX: true,
+      centerY: true
+    }
+    this.flapRotationOffsets = {
+      offsetX: false,
+      offsetY: true,
+      centerX: false,
+      centerY: true
+    }
     super.loadObject('aircraftTilt');
   }
 
@@ -18,18 +30,11 @@ class Plane extends Experiment {
   }
 
   rotatePlane(angle) {
-    super.rotate(this.layers.body, angle);
+    super.rotate(this.layers.body, angle, this.planeRotationOffsets);
   }
 
   rotateFlap(angle) {
-    super.rotate(this.layers.flap, angle, false, true);
-
-    // d3.select('#flap').attr('transform', function () {
-    //   const x1 = this.getBBox().x;
-    //   const y1 = this.getBBox().y + this.getBBox().height / 2; //the center y about which you want to rotate
-
-    //   return `rotate(${angle * 57.2957795} ${x1} ${y1})`;
-    // });
+    super.rotate(this.layers.flap, angle, this.flapRotationOffsets);
   }
 }
 

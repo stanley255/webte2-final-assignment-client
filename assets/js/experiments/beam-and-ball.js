@@ -6,6 +6,12 @@ class BeamAndBall extends Experiment {
     super(EXPERIMENTS.ballOnStick.svg);
     this.layers = EXPERIMENTS.ballOnStick.layers;
     this.timeout = timeout;
+    this.rotationOffsets = {
+      offsetX: true,
+      offsetY: true,
+      centerX: true,
+      centerY: true
+    }
     super.loadObject('ballOnStick');
   }
 
@@ -22,7 +28,7 @@ class BeamAndBall extends Experiment {
   }
 
   rotatePlatformAbsolute(angle) {
-    super.rotate(this.layers.platform, angle);
+    super.rotate(this.layers.platform, angle, this.rotationOffsets);
   }
 }
 

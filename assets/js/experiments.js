@@ -12,6 +12,7 @@ import Plane from './experiments/plane.js';
 let CURRENT_EXPERIMENT;
 let CHART;
 let EXPERIMENT_TIMEOUT;
+let EXPERIMENT_OBJECTS;
 
 const createEmptyLineChart = () => {
   const currExp = getCurrentExperiment();
@@ -48,14 +49,7 @@ const createEmptyLineChart = () => {
 };
 
 const createExperimentObject = () => {
-  let experimentObjectsByName = {
-    inversePendulum: new Pendulum(EXPERIMENT_TIMEOUT),
-    ballOnStick: new BeamAndBall(EXPERIMENT_TIMEOUT),
-    carShockAbsorber: new Car(EXPERIMENT_TIMEOUT),
-    aircraftTilt: new Plane(EXPERIMENT_TIMEOUT),
-  };
-
-  return experimentObjectsByName[getCurrentExperiment()];
+  return EXPERIMENT_OBJECTS[getCurrentExperiment()];
 };
 
 const getCurrentExperiment = () => {
@@ -179,7 +173,17 @@ const initExperimentTimeout = () => {
   EXPERIMENT_TIMEOUT = $('#experiment-timeout').val() || 0;
 };
 
+const initExperimentObjects = () => {
+  EXPERIMENT_OBJECTS = {
+    inversePendulum: new Pendulum(EXPERIMENT_TIMEOUT),
+    ballOnStick: new BeamAndBall(EXPERIMENT_TIMEOUT),
+    carShockAbsorber: new Car(EXPERIMENT_TIMEOUT),
+    aircraftTilt: new Plane(EXPERIMENT_TIMEOUT),
+  };
+};
+
 initExperimentTimeout();
 initExperimentButtons();
+initExperimentObjects();
 initInputRanges();
 setCurrentExperiment(getCurrentExperiment());

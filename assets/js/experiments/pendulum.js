@@ -9,9 +9,15 @@ class Pendulum extends Experiment {
       x: 0,
       y: 0,
     };
+    this.segmentStep = 0;
     this.angle = 0;
     this.timeout = timeout;
-    // $(this.layers.ballAndStick).css("transform-origin", "15px 0px");
+    this.rotationOffsets = {
+      offsetX: true,
+      offsetY: true,
+      centerX: true,
+      centerY: false,
+    };
     super.loadObject('inversePendulum');
   }
 
@@ -24,14 +30,30 @@ class Pendulum extends Experiment {
   }
 
   rotateBallAndStickAbsolute(value) {
-    this.angle = value;
-    super.rotate(this.layers.ballAndStick, value);
+    this.angle = -value;
+    super.rotate(this.layers.ballAndStick, this.angle, this.rotationOffsets);
+  }
+
+  setSegmentStep(constant = 40) {
+    // warning !!! viewbox
+    const platform = d3.select(this.layers.platform).node();
+    const width = platform.getBoundingClientRect().width;
+    this.segmentStep = width / constant;
   }
 
   moveBaseAbsolute(value) {
-    this.basePosition.x = value;
-    super.move(this.layers.body, { x: this.basePosition.x, y: 0 });
+    this.setSegmentStep();
+    this.basePosition.x = value * this.segmentStep;
+
+    super.move(this.layers.body, {
+      x: this.basePosition.x,
+      y: 0,
+    });
   }
+
+  registerEvents = () => {
+    window.onresize = this.setSegmentStep;
+  };
 }
 
 export default Pendulum = Pendulum;

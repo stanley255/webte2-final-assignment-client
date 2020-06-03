@@ -1,16 +1,21 @@
-<svg width="458" height="270" viewBox="0 0 458 270" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g id="beamAndBall">
-    <g id="base">
-      <path id="XMLID 111" d="M136.5 257.7H113.5V263.1H136.5V257.7Z" fill="#153351"/>
-      <path id="XMLID 123" d="M343.5 257.7H320.5V263.1H343.5V257.7Z" fill="#153351"/>
-      <path id="XMLID 126" d="M228.8 159.3C237.084 159.3 243.8 152.584 243.8 144.3C243.8 136.016 237.084 129.3 228.8 129.3C220.516 129.3 213.8 136.016 213.8 144.3C213.8 152.584 220.516 159.3 228.8 159.3Z" fill="#153351"/>
-      <path id="XMLID 121" d="M241.9 237.2H215.7C213.5 237.2 211.7 235.4 211.7 233.2V139.4C211.7 137.2 213.5 135.4 215.7 135.4H241.9C244.1 135.4 245.9 137.2 245.9 139.4V233.2C245.9 235.4 244.2 237.2 241.9 237.2Z" fill="#768CA5"/>
-      <path id="XMLID 107" d="M348.1 230.7H109.6V257.7H348.1V230.7Z" fill="#1A3F69"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="465" height="280" viewBox="0 0 465 280">
+  <g id="Group_31" data-name="Group 31">
+    <g id="Group_30" data-name="Group 30" opacity="0">
+      <rect id="Rectangle_21" data-name="Rectangle 21" width="465" height="280" fill="#fff"/>
     </g>
-    <g id="platform" style="transform-origin: center;">
-      <path id="beam" d="M 420.5 121.5 H 22.5 V 130 L 435.5 129.3 V 121.3 Z" fill="#768CA5"/>
-      <g id="ball">
-        <path d="M229.2 123C238.037 123 245.2 115.837 245.2 107C245.2 98.1634 238.037 91 229.2 91C220.363 91 213.2 98.1634 213.2 107C213.2 115.837 220.363 123 229.2 123Z" fill="#FF5752"/>
+    <g id="beamAndBall">
+      <g id="base">
+        <path id="XMLID_111" data-name="XMLID 111" d="M136.5,257.7h-23v5.4h23Z" fill="#153351"/>
+        <path id="XMLID_123" data-name="XMLID 123" d="M343.5,257.7h-23v5.4h23Z" fill="#153351"/>
+        <path id="XMLID_126" data-name="XMLID 126" d="M228.8,159.3a15,15,0,1,0-15-15A15,15,0,0,0,228.8,159.3Z" fill="#153351"/>
+        <path id="XMLID_121" data-name="XMLID 121" d="M241.9,237.2H215.7a4.012,4.012,0,0,1-4-4V139.4a4.012,4.012,0,0,1,4-4h26.2a4.012,4.012,0,0,1,4,4v93.8A3.949,3.949,0,0,1,241.9,237.2Z" fill="#768ca5"/>
+        <path id="XMLID_107" data-name="XMLID 107" d="M348.1,230.7H109.6v27H348.1Z" fill="#1a3f69"/>
+      </g>
+      <g id="ball-platform">
+        <path id="beam" d="M420.5,121.5H22.5V130l413-.7v-8Z" fill="#768ca5"/>
+        <g id="ball">
+          <path id="Path_34" data-name="Path 34" d="M229.2,122a15.508,15.508,0,1,0-16-15.5A15.755,15.755,0,0,0,229.2,122Z" fill="#ff5752"/>
+        </g>
       </g>
     </g>
   </g>

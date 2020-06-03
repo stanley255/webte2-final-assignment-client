@@ -3,26 +3,26 @@
   function get_all_experiments() {
     $inversePendulum = new stdClass();
     $inversePendulum->name = 'inversePendulum';
-    $inversePendulum->min = -100;
-    $inversePendulum->max = 100;
+    $inversePendulum->min = -20;
+    $inversePendulum->max = 20;
     $inversePendulum->step = 1;
 
     $ballOnStick = new stdClass();
     $ballOnStick->name = 'ballOnStick';
-    $ballOnStick->min = -190;
-    $ballOnStick->max = 190;
-    $ballOnStick->step = 1;
+    $ballOnStick->min = -180;
+    $ballOnStick->max = 180;
+    $ballOnStick->step = 10;
 
     $carShockAbsorber = new stdClass();
     $carShockAbsorber->name = 'carShockAbsorber';
-    $carShockAbsorber->min = 0;
+    $carShockAbsorber->min = -10;
     $carShockAbsorber->max = 10;
-    $carShockAbsorber->step = 0.1;
+    $carShockAbsorber->step = 0.5;
 
     $aircraftTilt = new stdClass();
     $aircraftTilt->name = 'aircraftTilt';
-    $aircraftTilt->min = 0;
-    $aircraftTilt->max = 1;
+    $aircraftTilt->min = -0.5;
+    $aircraftTilt->max = 0.5;
     $aircraftTilt->step = 0.01;
     return array($inversePendulum, $ballOnStick, $carShockAbsorber, $aircraftTilt);
   }
@@ -172,7 +172,7 @@
     $console_command->uri_params = array(
       'apiKey' => array(
         'sk' => 'Tajný autentifikačný token používateľa',
-        'en' => 'Secret authentication token of user'
+        'en' => 'User\'s secret authentication token'
       ),
     );
     $console_command->body_params = array(
@@ -204,7 +204,7 @@
     $all_experiments->uri_params = array(
       'apiKey' => array(
         'sk' => 'Tajný autentifikačný token používateľa',
-        'en' => 'Secret authentication token of user'
+        'en' => 'User\'s secret authentication token'
       ),
     );
     $all_experiments->body_params = array();
@@ -215,7 +215,7 @@
           'endpoint' => '/experiments/pendulum',
         ),
         array(
-          'experiment' => 'Ball Beam',
+          'experiment' => 'Ball & Beam',
           'endpoint' => '/experiments/ball',
         ),
         array(
@@ -247,7 +247,7 @@
       ),
       'apiKey' => array(
         'sk' => 'Tajný autentifikačný token používateľa',
-        'en' => 'Secret authentication token of user'
+        'en' => 'User\'s secret authentication token'
       ),
     );
     $inverted_pendulum->body_params = array();
@@ -266,7 +266,7 @@
     $ball_beam = new stdClass();
     $ball_beam->title = array(
       'sk' => 'Získaj dáta guličky na tyči',
-      'en' => 'Get ball beam data'
+      'en' => 'Get ball & beam data'
     );
     $ball_beam->url = 'http://52.233.133.56/api/experiments/ball?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
     $ball_beam->method = 'GET';
@@ -281,12 +281,12 @@
       ),
       'apiKey' => array(
         'sk' => 'Tajný autentifikačný token používateľa',
-        'en' => 'Secret authentication token of user'
+        'en' => 'User\'s secret authentication token'
       ),
     );
     $ball_beam->body_params = array();
     $ball_beam->response = array(
-      'experiment' => 'Ball Beam',
+      'experiment' => 'Ball & Beam',
       'session' => 'j057t7hrv9d71p1vt1b010e080',
       'data' => array(
         array(
@@ -315,7 +315,7 @@
       ),
       'apiKey' => array(
         'sk' => 'Tajný autentifikačný token používateľa',
-        'en' => 'Secret authentication token of user'
+        'en' => 'User\'s secret authentication token'
       ),
     );
     $car_suspension->body_params = array();
@@ -349,7 +349,7 @@
       ),
       'apiKey' => array(
         'sk' => 'Tajný autentifikačný token používateľa',
-        'en' => 'Secret authentication token of user'
+        'en' => 'User\'s secret authentication token'
       ),
     );
     $aircraft_pitch->body_params = array();
@@ -375,7 +375,7 @@
     $all_logs->uri_params = array(
       'apiKey' => array(
         'sk' => 'Tajný autentifikačný token používateľa',
-        'en' => 'Secret authentication token of user'
+        'en' => 'User\'s secret authentication token'
       ),
     );
     $all_logs->body_params = array();
@@ -409,7 +409,7 @@
       ),
       'apiKey' => array(
         'sk' => 'Tajný autentifikačný token používateľa',
-        'en' => 'Secret authentication token of user'
+        'en' => 'User\'s secret authentication token'
       ),
     );
     $last_position = new stdClass();
@@ -432,7 +432,7 @@
     $statistics->uri_params = array(
       'apiKey' => array(
         'sk' => 'Tajný autentifikačný token používateľa',
-        'en' => 'Secret authentication token of user'
+        'en' => 'User\'s secret authentication token'
       ),
     );
     $statistics->body_params = array();
@@ -443,7 +443,7 @@
           'count' => 1
         ),
         array(
-          'experiment' => 'Ball Beam',
+          'experiment' => 'Ball & Beam',
           'count' => 1
         ),
         array(

@@ -12,7 +12,7 @@
       return 'Subject or content is incorrect';
     }
 
-    $headers .= "Reply-To: " . $from . "\r\n";
+    $headers = "Reply-To: " . $from . "\r\n";
     $headers .= "Return-Path: " . $from . "\r\n";
     $headers .= "From: " . $from . "\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
