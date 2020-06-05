@@ -2,7 +2,7 @@ import Experiment from './experiment.js';
 import EXPERIMENTS from '../helpers/experiments.js';
 
 class Plane extends Experiment {
-  constructor(timeout = 0) {
+  constructor(timeout) {
     super(EXPERIMENTS.aircraftTilt.svg);
     this.layers = EXPERIMENTS.aircraftTilt.layers;
     this.timeout = timeout;
@@ -10,14 +10,14 @@ class Plane extends Experiment {
       offsetX: true,
       offsetY: true,
       centerX: true,
-      centerY: true
-    }
+      centerY: true,
+    };
     this.flapRotationOffsets = {
       offsetX: false,
       offsetY: true,
       centerX: false,
-      centerY: true
-    }
+      centerY: true,
+    };
     super.loadObject('aircraftTilt');
   }
 

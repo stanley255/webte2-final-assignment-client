@@ -5,8 +5,8 @@ class Experiment {
     this.path = path;
   }
 
-  loadObject(experimentName, callback = () => {}) {
-    $(`#experiment-visualization-${experimentName}`).load(this.path, callback);
+  loadObject(experimentName) {
+    $(`#experiment-visualization-${experimentName}`).load(this.path);
   }
 
   rotate(layer, angle, offsets) {

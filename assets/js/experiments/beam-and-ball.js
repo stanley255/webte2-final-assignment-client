@@ -2,7 +2,7 @@ import Experiment from './experiment.js';
 import EXPERIMENTS from '../helpers/experiments.js';
 
 class BeamAndBall extends Experiment {
-  constructor(timeout = 0) {
+  constructor(timeout) {
     super(EXPERIMENTS.ballOnStick.svg);
     this.layers = EXPERIMENTS.ballOnStick.layers;
     this.timeout = timeout;
@@ -10,8 +10,8 @@ class BeamAndBall extends Experiment {
       offsetX: true,
       offsetY: true,
       centerX: true,
-      centerY: true
-    }
+      centerY: true,
+    };
     super.loadObject('ballOnStick');
   }
 

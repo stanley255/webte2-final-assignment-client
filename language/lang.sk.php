@@ -9,13 +9,16 @@
   $language['HEADER_SUB_MENU']['carShockAbsorber'] = 'Tlmenie';
   $language['HEADER_SUB_MENU']['aircraftTilt'] = 'Lietadlo';
 
+  // MAIL
+  $language['MAIL_TITLE'] = 'Štatistika experimentov';
+
   // HOME PAGE
   $language['HOME_PAGE_TITLE_1'] = 'Napíš svoj prvý príkaz ...';
   $language['HOME_PAGE_TITLE_2'] = 'Štatistiky použitia našich experimentov';
   $language['HOME_PAGE_MESSAGE_1'] = 'Neboli nájdené žiadne štatistické dáta';
   $language['HOME_PAGE_BUTTON_1'] = 'Poslať';
 
-  // PENDULUM PAGE
+  // EXPERIMENTS PAGE
   $language['EXPERIMENT']['inversePendulum'] = 'Prevrátené kyvadlo';
   $language['EXPERIMENT']['ballOnStick'] = 'Gulička na tyči';
   $language['EXPERIMENT']['carShockAbsorber'] = 'Tlmič kolesa';

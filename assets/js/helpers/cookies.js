@@ -1,6 +1,6 @@
-export const setCookie = (cname, cvalue, exdays = 365) => {
+export const setCookie = (cname, cvalue) => {
   let d = new Date();
-  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000); // 1 year
   const expires = 'expires=' + d.toUTCString();
   document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 };

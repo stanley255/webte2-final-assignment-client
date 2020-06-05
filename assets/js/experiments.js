@@ -3,7 +3,7 @@ import { createGraph } from './helpers/graph.js';
 import { getCurrentLanguage } from './helpers/language.js';
 import EXPERIMENTS from './helpers/experiments.js';
 
-// EXPERIMENTS
+EXPERIMENTS;
 import BeamAndBall from './experiments/beam-and-ball.js';
 import Car from './experiments/car.js';
 import Pendulum from './experiments/pendulum.js';
@@ -62,7 +62,6 @@ const setCurrentExperiment = async (experiment) => {
 
   initExperiment();
 
-  // Start loading
   const response = await getLatestInput(getCurrentExperiment());
   $(`.${getCurrentExperiment()}`).removeClass('hidden');
 
@@ -73,75 +72,105 @@ const setCurrentExperiment = async (experiment) => {
 
     onInputRangeChange({ target: { value: response.r } });
   }
-  // End loading
 };
 
 const onInputRangeChange = (e) => {
   const { value } = e.target;
   const regex = EXPERIMENTS[getCurrentExperiment()].regex;
 
-  // if (!regex.test(value)) return;
+  if (!regex.test(value)) return;
 
   $(`#input-range-label-${getCurrentExperiment()}`).val(value);
   $(`#input-range-${getCurrentExperiment()}`).val(value);
-};
-
-const onInputRangeRelease = async (e) => {
-  const { value } = e.target;
-  const octaveData = await getExperiment(
-    EXPERIMENTS[getCurrentExperiment()].endpoint,
-    value,
-    {}
-  );
-
-  $(`#input-range-${getCurrentExperiment()}`).prop('disabled', true);
-  setDisableToAllButtons(true);
-
-  CHART.destroy();
-  CHART = createEmptyLineChart();
-
-  CURRENT_EXPERIMENT.runAnimation(octaveData);
-
-  await addDataToPlot(octaveData);
-  $(`#input-range-${getCurrentExperiment()}`).prop('disabled', false);
-  setDisableToAllButtons();
-};
-
-const addDataToPlot = async (octaveData) => {
-  let labels = EXPERIMENTS[getCurrentExperiment()].octaveDataLabels;
-  for (let record of octaveData.content) {
-    CHART.data.labels.push(record[labels[0]]);
-    CHART.data.datasets[0].data.push(record[labels[1]]);
-    CHART.data.datasets[1].data.push(record[labels[2]]);
-    await new Promise((r) => setTimeout(r, EXPERIMENT_TIMEOUT));
-
-    CHART.update();
-  }
 };
 
 const onInputRangeLabelChange = (e) => {
   const regex = EXPERIMENTS[getCurrentExperiment()].regex;
   let { value } = e.target;
 
-  // if (!regex.test(value)) {
-  //   value = value.slice(0, -1);
-  // }
+  if (!regex.test(value)) {
+    value = value.slice(0, -1);
+  }
 
   $(e.target).val(value);
   $(`#input-range-${getCurrentExperiment()}`).val(value);
 };
 
+const setDisableToCurrentInputRange = (disabled) => {
+  $(`#input-range-${getCurrentExperiment()}`).prop({ disabled });
+  $(`#input-range-label-${getCurrentExperiment()}`).prop({ disabled });
+};
+
+const isCurrentInputRangeDisabled = () => {
+  return $(`#input-range-${getCurrentExperiment()}`).prop('disabled');
+};
+
+const setHiddenToSpinner = (hidden) => {
+  if (hidden) $('#spinner').addClass('hidden');
+  else $('#spinner').removeClass('hidden');
+};
+
+const onRunExperimentAnimation = async () => {
+  if (isCurrentInputRangeDisabled()) return;
+
+  const value = $(`#input-range-${getCurrentExperiment()}`).val();
+
+  setHiddenToSpinner(false);
+  const octaveData = await getExperiment(
+    EXPERIMENTS[getCurrentExperiment()].endpoint,
+    value,
+    {}
+  );
+
+  setDisableToCurrentInputRange(true);
+  setDisableToAllButtons(true);
+
+  CHART.destroy();
+  CHART = createEmptyLineChart();
+  setHiddenToSpinner(true);
+
+  CURRENT_EXPERIMENT.runAnimation(octaveData);
+
+  await addDataToPlot(octaveData);
+  setDisableToCurrentInputRange(false);
+  setDisableToAllButtons(false);
+};
+
+const addDataToPlot = async (octaveData) => {
+  let modifiers = EXPERIMENTS[getCurrentExperiment()].octaveData;
+  for (let record of octaveData.content) {
+    Object.entries(modifiers).forEach(([key, value], i) => {
+      if (i === 0) {
+        CHART.data.labels.push(value(record[key]));
+      } else {
+        CHART.data.datasets[i - 1].data.push(value(record[key]));
+      }
+    });
+    await new Promise((r) => setTimeout(r, EXPERIMENT_TIMEOUT));
+
+    CHART.update();
+  }
+};
+
 const initInputRanges = () => {
   $('.input-range').each(function () {
-    $(this).on('input', onInputRangeChange).on('change', onInputRangeRelease);
+    $(this)
+      .on('input', onInputRangeChange)
+      .on('change', onRunExperimentAnimation);
   });
 
   $('.input-range-label').each(function () {
-    $(this).on('input', onInputRangeLabelChange);
+    $(this)
+      .on('input', onInputRangeLabelChange)
+      .on('keyup', (e) => {
+        if (e.keyCode === 13) {
+          onRunExperimentAnimation();
+        }
+      });
   });
 };
 
-const setDisableToAllButtons = (disabled = false) => {
+const setDisableToAllButtons = (disabled) => {
   $('.experiment-button').each(function () {
     $(this).attr({
       disabled,
@@ -150,7 +179,7 @@ const setDisableToAllButtons = (disabled = false) => {
 };
 
 const initDisableButton = () => {
-  setDisableToAllButtons();
+  setDisableToAllButtons(false);
 
   $(`#experiment-button-${getCurrentExperiment()}`).attr({
     disabled: true,

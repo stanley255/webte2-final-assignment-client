@@ -2,7 +2,7 @@ import Experiment from './experiment.js';
 import EXPERIMENTS from '../helpers/experiments.js';
 
 class Car extends Experiment {
-  constructor(timeout = 0) {
+  constructor(timeout) {
     super(EXPERIMENTS.carShockAbsorber.svg);
     this.layers = EXPERIMENTS.carShockAbsorber.layers;
     this.carPosition = {

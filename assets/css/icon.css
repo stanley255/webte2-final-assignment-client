@@ -30,7 +30,7 @@
 }
 
 .icon-opacity {
-  opacity: 0.6;
+  opacity: 0.8;
   transition: opacity 0.2s ease-in-out;
 }
 
@@ -45,6 +45,14 @@
 
 .icon-hover:hover {
   transform: scale(1.05);
+}
+
+.icon-breath {
+  animation: breath 1.5s infinite;
+}
+
+.breath-delay {
+  animation-delay: 0.5s;
 }
 
 .icon-flag {
@@ -86,6 +94,16 @@
 
 .icon-git:hover {
   transform: scale(1.15) rotate(360deg);
+}
+
+@keyframes breath {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.2em);
+  }
 }
 
 @media only screen and (max-width: 900px) {

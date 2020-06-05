@@ -124,6 +124,9 @@
     ?>
   </div>
   <main id="<?php echo $experiment; ?>">
+    <div id="spinner" class="spinner hidden">
+      <img class="icon icon-big" src="./assets/icons/spinner.gif" alt="Icon" />
+    </div>
     <?php 
       foreach ($experiments as $key => $value) {
         ?> 
@@ -146,8 +149,8 @@
                      step="<?php echo $value->step; ?>"
                      value="0" />
               <div class="input-container">
-                <span class="arrow-left"></span>
                 <input type="text" id="input-range-label-<?php echo $value->name; ?>" class="input-range-label" value="0" />
+                <span class="arrow-left"></span>
               </div>
             </div>
             <div class="group-container">

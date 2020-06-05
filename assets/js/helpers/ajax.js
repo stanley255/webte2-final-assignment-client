@@ -1,7 +1,7 @@
 import { getCookie } from './cookies.js';
 
-const OCTAVE_API_URL = 'http://52.233.133.56/api';
-const CLIENT_API_URL = 'http://52.233.133.56/client/api';
+const OCTAVE_API_URL = 'https://wt43.fei.stuba.sk:4443/api';
+const CLIENT_API_URL = 'https://wt43.fei.stuba.sk:4443/client/api';
 
 export const ajaxRequest = async (type, url, data = {}) => {
   return $.ajax({

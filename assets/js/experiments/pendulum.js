@@ -2,7 +2,7 @@ import Experiment from './experiment.js';
 import EXPERIMENTS from '../helpers/experiments.js';
 
 class Pendulum extends Experiment {
-  constructor(timeout = 0) {
+  constructor(timeout) {
     super(EXPERIMENTS.inversePendulum.svg);
     this.layers = EXPERIMENTS.inversePendulum.layers;
     this.basePosition = {
@@ -34,26 +34,20 @@ class Pendulum extends Experiment {
     super.rotate(this.layers.ballAndStick, this.angle, this.rotationOffsets);
   }
 
-  setSegmentStep(constant = 40) {
-    // warning !!! viewbox
+  setSegmentStep() {
     const platform = d3.select(this.layers.platform).node();
     const width = platform.getBoundingClientRect().width;
-    this.segmentStep = width / constant;
+    this.segmentStep = width / 40;
   }
 
   moveBaseAbsolute(value) {
     this.setSegmentStep();
     this.basePosition.x = value * this.segmentStep;
-
     super.move(this.layers.body, {
       x: this.basePosition.x,
       y: 0,
     });
   }
-
-  registerEvents = () => {
-    window.onresize = this.setSegmentStep;
-  };
 }
 
 export default Pendulum = Pendulum;

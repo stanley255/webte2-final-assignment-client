@@ -7,7 +7,7 @@
 
   require_once(__ROOT__ . '/config.php');
 
-  require_once(__ROOT__ . '/helpers/curl.php');
+  require_once('../services/logging-service.php');
   require_once(__ROOT__ . '/language/lang.php');
 
   // LANGUAGE SET UP
@@ -19,7 +19,7 @@
     global $lang;
     global $language;
 
-    $logs = curl_request('http://52.233.133.56/api/logs?api-key=' . $GLOBALS['octave_api_key']);
+    $logs = getAllLogs();
 
     header('Content-Type: text/csv; charset=utf-8');
     header('Content-Disposition: attachment; filename="logs-' . $lang . '.csv"');

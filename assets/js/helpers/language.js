@@ -1,6 +1,6 @@
 import { getCookie } from './cookies.js';
 
-export const getCurrentLanguage = (defaultLang = 'sk') => {
+export const getCurrentLanguage = () => {
   const lang = getCookie('language');
-  return lang ? lang : defaultLang;
+  return lang ? lang : 'sk';
 };

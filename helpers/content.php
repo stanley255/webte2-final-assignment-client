@@ -51,20 +51,20 @@
     $jan_korcek->experiment = 'inversePendulum';
     $jan_korcek->tasks = array(
       array(
-        'sk' => 'SK - Task#1',
-        'en' => 'EN - Task#1',
+        'sk' => 'Dizajn a responzivita',
+        'en' => 'Design and responsiveness',
       ),
       array(
-        'sk' => 'SK - Task#2',
-        'en' => 'EN - Task#2',
+        'sk' => 'Email reporting',
+        'en' => 'Email reporting',
       ),
       array(
-        'sk' => 'SK - Task#2',
-        'en' => 'EN - Task#2',
+        'sk' => 'Front-end konzola',
+        'en' => 'Front-end console',
       ),
       array(
-        'sk' => 'SK - Task#1',
-        'en' => 'EN - Task#1',
+        'sk' => 'PDF/CSV reporty',
+        'en' => 'PDF/CSV reports',
       ),
     );
 
@@ -81,20 +81,20 @@
     $stanislav_pekarovic->experiment = 'ballOnStick';
     $stanislav_pekarovic->tasks = array(
       array(
-        'sk' => 'SK - Task#1',
-        'en' => 'EN - Task#1',
+        'sk' => 'GNU Octave Backend',
+        'en' => 'GNU Octave Backend',
       ),
       array(
-        'sk' => 'SK - Task#2',
-        'en' => 'EN - Task#2',
+        'sk' => 'Databáza a logovanie',
+        'en' => 'Database and logging',
       ),
       array(
-        'sk' => 'SK - Task#2',
-        'en' => 'EN - Task#2',
+        'sk' => 'OOP základ experimentov',
+        'en' => 'OOP basis of experiments',
       ),
       array(
-        'sk' => 'SK - Task#1',
-        'en' => 'EN - Task#1',
+        'sk' => 'Grafy experimentov',
+        'en' => 'Graphs of experiments',
       ),
     );
 
@@ -111,20 +111,20 @@
     $matej_friedel->experiment = 'carShockAbsorber';
     $matej_friedel->tasks = array(
       array(
-        'sk' => 'SK - Task#1',
-        'en' => 'EN - Task#1',
+        'sk' => 'REST API',
+        'en' => 'REST API',
       ),
       array(
-        'sk' => 'SK - Task#2',
-        'en' => 'EN - Task#2',
+        'sk' => 'D3.js animácie',
+        'en' => 'D3.js animations',
       ),
       array(
-        'sk' => 'SK - Task#2',
-        'en' => 'EN - Task#2',
+        'sk' => 'Octave API referencia',
+        'en' => 'Octave API reference',
       ),
       array(
-        'sk' => 'SK - Task#1',
-        'en' => 'EN - Task#1',
+        'sk' => 'Dvojjazyčnosť stránky',
+        'en' => 'Website bilingualism',
       ),
     );
 
@@ -141,20 +141,16 @@
     $martin_knosko->experiment = 'aircraftTilt';
     $martin_knosko->tasks = array(
       array(
-        'sk' => 'SK - Task#1',
-        'en' => 'EN - Task#1',
+        'sk' => 'SVG experimentov',
+        'en' => 'SVG of experiments',
       ),
       array(
-        'sk' => 'SK - Task#2',
-        'en' => 'EN - Task#2',
+        'sk' => 'Animácia lietadla',
+        'en' => 'Airplane animation',
       ),
       array(
-        'sk' => 'SK - Task#2',
-        'en' => 'EN - Task#2',
-      ),
-      array(
-        'sk' => 'SK - Task#1',
-        'en' => 'EN - Task#1',
+        'sk' => 'Migrácia serveru',
+        'en' => 'Server migration',
       ),
     );
 
@@ -167,7 +163,7 @@
       'sk' => 'Pošli Octave príkaz',
       'en' => 'Send an Octave command'
     );
-    $console_command->url = 'http://52.233.133.56/api/console?api-key=<span class="primary">{apiKey}</span>';
+    $console_command->url = 'https://wt43.fei.stuba.sk:4443/api/console?api-key=<span class="primary">{apiKey}</span>';
     $console_command->method = 'POST';
     $console_command->uri_params = array(
       'apiKey' => array(
@@ -186,47 +182,12 @@
       )
     );
     $console_command->response = array(
-      'session' => 'j057t7hrv9d71p1vt1b010e080',
-      'output' => array(
+      'content' => array(
         '1 3',
         '2 2',
         '3 1',
-      )
-    );
-
-    $all_experiments = new stdClass();
-    $all_experiments->title = array(
-      'sk' => 'Získaj všetky experimenty',
-      'en' => 'List all Experiments'
-    );
-    $all_experiments->url = 'http://52.233.133.56/api/experiments?api-key=<span class="primary">{apiKey}</span>';
-    $all_experiments->method = 'GET';
-    $all_experiments->uri_params = array(
-      'apiKey' => array(
-        'sk' => 'Tajný autentifikačný token používateľa',
-        'en' => 'User\'s secret authentication token'
       ),
-    );
-    $all_experiments->body_params = array();
-    $all_experiments->response = array(
-      'experiments' => array(
-        array(
-          'experiment' => 'Inverted Pendulum',
-          'endpoint' => '/experiments/pendulum',
-        ),
-        array(
-          'experiment' => 'Ball & Beam',
-          'endpoint' => '/experiments/ball',
-        ),
-        array(
-          'experiment' => 'Car Suspension',
-          'endpoint' => '/experiments/suspension',
-        ),
-        array(
-          'experiment' => 'Aircraft Pitch',
-          'endpoint' => '/experiments/aircraft',
-        )
-      )
+      'returnCode' => 0
     );
 
     $inverted_pendulum = new stdClass();
@@ -234,7 +195,7 @@
       'sk' => 'Získaj dáta prevráteného kyvadla',
       'en' => 'Get inverted pendulum data'
     );
-    $inverted_pendulum->url = 'http://52.233.133.56/api/experiments/pendulum?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
+    $inverted_pendulum->url = 'https://wt43.fei.stuba.sk:4443/api/experiments/pendulum?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
     $inverted_pendulum->method = 'GET';
     $inverted_pendulum->uri_params = array(
       'sessionID' => array(
@@ -252,15 +213,16 @@
     );
     $inverted_pendulum->body_params = array();
     $inverted_pendulum->response = array(
-      'experiment' => 'Inverted Pendulum',
-      'session' => 'j057t7hrv9d71p1vt1b010e080',
       'data' => array(
         array(
-          'x' => 420,
-          'y' => 420,
-          'angle' => 69
+          'x' => 10,
+          'y' => 5.99864,
+          'angle' => 0
         )
-      )
+      ),
+      "returnCode" => 0,
+      "rangeFrom" => 0,
+      "rangeTo" => 6
     );
 
     $ball_beam = new stdClass();
@@ -268,7 +230,7 @@
       'sk' => 'Získaj dáta guličky na tyči',
       'en' => 'Get ball & beam data'
     );
-    $ball_beam->url = 'http://52.233.133.56/api/experiments/ball?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
+    $ball_beam->url = 'https://wt43.fei.stuba.sk:4443/api/experiments/ball?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
     $ball_beam->method = 'GET';
     $ball_beam->uri_params = array(
       'sessionID' => array(
@@ -286,15 +248,16 @@
     );
     $ball_beam->body_params = array();
     $ball_beam->response = array(
-      'experiment' => 'Ball & Beam',
-      'session' => 'j057t7hrv9d71p1vt1b010e080',
       'data' => array(
         array(
-          'x' => 420,
-          'y' => 420,
-          'angle' => 69
+          'x' => 5,
+          'y' => 90.00615,
+          'angle' => -0
         )
-      )
+      ),
+      "returnCode" => 0,
+      "rangeFrom" => 0,
+      "rangeTo" => 90
     );
 
     $car_suspension = new stdClass();
@@ -302,7 +265,7 @@
       'sk' => 'Získaj dáta tlmiča kolesa',
       'en' => 'Get car suspension data'
     );
-    $car_suspension->url = 'http://52.233.133.56/api/experiments/suspension?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
+    $car_suspension->url = 'https://wt43.fei.stuba.sk:4443/api/experiments/suspension?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
     $car_suspension->method = 'GET';
     $car_suspension->uri_params = array(
       'sessionID' => array(
@@ -320,15 +283,16 @@
     );
     $car_suspension->body_params = array();
     $car_suspension->response = array(
-      'experiment' => 'Car Suspension',
-      'session' => 'j057t7hrv9d71p1vt1b010e080',
-      'data' => array(
+      'content' => array(
         array(
-          'x' => 420,
-          'y' => 420,
-          'bodyworkHeight' => 69
+          'x' => 5,
+          'y' => 6.00041,
+          'bodyworkHeight' => 0.00041
         )
-      )
+      ),
+      "returnCode" => 0,
+      "rangeFrom" => 0,
+      "rangeTo" => 6
     );
 
     $aircraft_pitch = new stdClass();
@@ -336,7 +300,7 @@
       'sk' => 'Získaj dáta náklonu lietadla',
       'en' => 'Get aircraft pitch data'
     );
-    $aircraft_pitch->url = 'http://52.233.133.56/api/experiments/aircraft?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
+    $aircraft_pitch->url = 'https://wt43.fei.stuba.sk:4443/api/experiments/aircraft?session=<span class="primary">{sessionID}</span>&r=<span class="primary">{r}</span>&api-key=<span class="primary">{apiKey}</span>';
     $aircraft_pitch->method = 'GET';
     $aircraft_pitch->uri_params = array(
       'sessionID' => array(
@@ -354,15 +318,16 @@
     );
     $aircraft_pitch->body_params = array();
     $aircraft_pitch->response = array(
-      'experiment' => 'Aircraft Pitch',
-      'session' => 'j057t7hrv9d71p1vt1b010e080',
       'data' => array(
         array(
-          'x' => 420,
-          'y' => 420,
-          'rearFlapAngle' => 69
+          'x' => 40,
+          'y' => 0.29979,
+          'rearFlapAngle' => 0.00101
         )
-      )
+      ),
+      "returnCode" => 0,
+      "rangeFrom" => 0,
+      "rangeTo" => 0.3
     );
 
     $all_logs = new stdClass();
@@ -370,7 +335,7 @@
       'sk' => 'Získaj všetky zalogované súbory',
       'en' => 'List all log files'
     );
-    $all_logs->url = 'http://52.233.133.56/api/logs?api-key=<span class="primary">{apiKey}</span>';
+    $all_logs->url = 'https://wt43.fei.stuba.sk:4443/api/logs?api-key=<span class="primary">{apiKey}</span>';
     $all_logs->method = 'GET';
     $all_logs->uri_params = array(
       'apiKey' => array(
@@ -380,14 +345,12 @@
     );
     $all_logs->body_params = array();
     $all_logs->response = array(
-      'logs' => array(
-        array(
-          'timestamp' => '2020-01-01 10:10:10',
-          'command' => 'console',
-          'session' => 'j057t7hrv9d71p1vt1b010e080',
-          'status' => 'success',
-          'info' => 'Operation was successfull',
-        )
+      array(
+        'timestamp' => '2020-01-01 10:10:10',
+        'command' => 'console',
+        'session' => 'j057t7hrv9d71p1vt1b010e080',
+        'status' => 'success',
+        'info' => 'Operation was successfull',
       )
     );
 
@@ -396,7 +359,7 @@
       'sk' => 'Získaj posledný vstup a hodnoty experimentu',
       'en' => 'Get last input and values of experiment'
     );
-    $last_input->url = 'http://52.233.133.56/api/logs?experiment=<span class="primary">{experiment}</span>&session=<span class="primary">{sessionID}</span>&api-key=<span class="primary">{apiKey}</span>';
+    $last_input->url = 'https://wt43.fei.stuba.sk:4443/api/logs?experiment=<span class="primary">{experiment}</span>&session=<span class="primary">{sessionID}</span>&api-key=<span class="primary">{apiKey}</span>';
     $last_input->method = 'GET';
     $last_input->uri_params = array(
       'experiment' => array(
@@ -427,7 +390,7 @@
       'sk' => 'Získaj štatistiky',
       'en' => 'Get Statistics'
     );
-    $statistics->url = 'http://52.233.133.56/api/stats?api-key=<span class="primary">{apiKey}</span>';
+    $statistics->url = 'https://wt43.fei.stuba.sk:4443/api/stats?api-key=<span class="primary">{apiKey}</span>';
     $statistics->method = 'GET';
     $statistics->uri_params = array(
       'apiKey' => array(
@@ -437,25 +400,23 @@
     );
     $statistics->body_params = array();
     $statistics->response = array(
-      'stats' => array(
-        array(
-          'experiment' => 'Inverted Pendulum',
-          'count' => 1
-        ),
-        array(
-          'experiment' => 'Ball & Beam',
-          'count' => 1
-        ),
-        array(
-          'experiment' => 'Car Suspension',
-          'count' => 1
-        ),
-        array(
-          'experiment' => 'Aircraft Pitch',
-          'count' => 1
-        )
+      array(
+        'experiment' => 'Inverted Pendulum',
+        'count' => 1
+      ),
+      array(
+        'experiment' => 'Ball & Beam',
+        'count' => 1
+      ),
+      array(
+        'experiment' => 'Car Suspension',
+        'count' => 1
+      ),
+      array(
+        'experiment' => 'Aircraft Pitch',
+        'count' => 1
       )
     );
 
-    return array($console_command, $all_experiments, $inverted_pendulum, $ball_beam, $car_suspension, $aircraft_pitch, $all_logs, $last_input, $statistics);
+    return array($console_command, $inverted_pendulum, $ball_beam, $car_suspension, $aircraft_pitch, $all_logs, $last_input, $statistics);
   }

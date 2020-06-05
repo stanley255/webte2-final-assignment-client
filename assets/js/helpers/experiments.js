@@ -48,12 +48,16 @@ export default {
       ballAndStick: '#ball-and-stick',
     },
     labels: {
-      sk: ['Pozícia kyvadla', 'Vychýlenie (radiány)'],
-      en: ['Pendulum position', 'Deflection (radians)'],
+      sk: ['Pozícia kyvadla', 'Vychýlenie (stupne)'],
+      en: ['Pendulum position', 'Deflection (degrees)'],
     },
     endpoint: 'pendulum',
-    octaveDataLabels: ['x', 'y', 'angle'],
-    regex: /^-?([0-9]$|^-?[1-9][0-9]$|^-?[1][0]{2})?$/m,
+    octaveData: {
+      x: (value) => value,
+      y: (value) => value,
+      angle: (value) => radToDeg(value),
+    },
+    regex: /^-?([0-9]$|^-?[1][0-9]$|^-?[2][0])?$/m,
   },
   ballOnStick: {
     svg: './assets/svg/beamAndBall.svg',
@@ -62,12 +66,16 @@ export default {
       ball: '#ball',
     },
     labels: {
-      sk: ['Pozícia guličky', 'Uhol tyče'],
-      en: ['Ball position', 'Rod angle'],
+      sk: ['Pozícia guličky', 'Uhol tyče (stupne)'],
+      en: ['Ball position', 'Rod angle (degrees)'],
     },
     endpoint: 'ball',
-    octaveDataLabels: ['x', 'y', 'angle'],
-    regex: /^(-[1-9]|-?[1-9][0-9]|-?1[0-5][0-9]|-?16[0-5]|[0-9])?$/m,
+    octaveData: {
+      x: (value) => value,
+      y: (value) => value,
+      angle: (value) => radToDeg(value),
+    },
+    regex: /^-?([0-9]$|^-?[1-9][0-9]$|^-?[1][0-7][0-9]$|^-?[1][8][0])?$/m,
   },
   carShockAbsorber: {
     svg: './assets/svg/car.svg',
@@ -80,8 +88,12 @@ export default {
       en: ['Wheel height', 'Car height'],
     },
     endpoint: 'suspension',
-    octaveDataLabels: ['x', 'y', 'bodyworkHeight'],
-    regex: /^[0-9](\.\d{0,1})?$|^[1][0]{1}$/m,
+    octaveData: {
+      x: (value) => value,
+      y: (value) => value,
+      bodyworkHeight: (value) => value,
+    },
+    regex: /^-?([0-9](\.\d{0,1})?$|^-?[1][0]{1})?$/m,
   },
   aircraftTilt: {
     svg: './assets/svg/plane.svg',
@@ -90,11 +102,15 @@ export default {
       flap: '#flap',
     },
     labels: {
-      sk: ['Náklon lietadla (radiány)', 'Náklon zadnej klapky (radiány)'],
-      en: ['Tilt of the aircraft (radians)', 'Tilt of the rear flap (radians)'],
+      sk: ['Náklon lietadla (stupne)', 'Náklon zadnej klapky (stupne)'],
+      en: ['Tilt of the aircraft (degrees)', 'Tilt of the rear flap (degrees)'],
     },
     endpoint: 'aircraft',
-    octaveDataLabels: ['x', 'y', 'rearFlapAngle'],
-    regex: /^[0](\.\d{0,2})?$|^[1]{1}$/m,
+    octaveData: {
+      x: (value) => value,
+      y: (value) => radToDeg(value),
+      rearFlapAngle: (value) => radToDeg(value),
+    },
+    regex: /^-?([0](\.([0-4][0-9]?$|[5]?$)?)?)?$/m,
   },
 };

@@ -1,19 +1,15 @@
 .container-title {
   border-bottom: 3px dashed var(--fine-blue);
   margin-bottom: 2em;
-}
-
-.content-container {
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.content-title {
   padding-bottom: 2em;
 }
 
 .content-title > h1 {
   margin: 0 1em;
+}
+
+.container-reference > a:first-child {
+  margin-right: 1em;
 }
 
 .contact-container {
@@ -92,6 +88,10 @@ a.text-info:hover {
 }
 
 @media only screen and (max-width: 720px) {
+  .container-reference > a:first-child {
+    margin-right: 0.5em;
+  }
+
   .contact-container {
     grid-template-columns: 1fr;
   }

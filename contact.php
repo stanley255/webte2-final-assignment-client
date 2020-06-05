@@ -102,11 +102,19 @@
     </div>
   </div>
   <main>
-    <div class="container content-container container-title">
+    <div class="container container-space container-title">
       <div class="container content-title">
         <img class="icon icon-big" src="./assets/icons/programmer.svg" alt="Icon" />
         <h1><?php echo $language['CONTANT_PAGE_TITLE']; ?></h1>
       </div>
+      <div class="container container-reference">
+        <a href="https://github.com/stanley255/webte2-final-assignment-client" title="front-end" target="_blank">
+          <img class="icon icon-breath icon-opacity" src="./assets/icons/front-end.svg" alt="Icon" />
+        </a>
+        <a href="https://github.com/stanley255/webte2-final-assignment-server" title="back-end" target="_blank">
+          <img class="icon icon-breath breath-delay icon-opacity" src="./assets/icons/back-end.svg" alt="Icon" />
+        </a>
+      </div> 
     </div>
     <div class="contact-container">
       <?php 

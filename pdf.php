@@ -1,4 +1,4 @@
-<?php 
+<?php
 
   session_start();
 
@@ -10,10 +10,10 @@
   require_once(__ROOT__ . '/vendor/autoload.php');
   require_once(__ROOT__ . '/helpers/content.php');
   require_once(__ROOT__ . '/helpers/string.php');
-  require_once(__ROOT__ . '/helpers/curl.php');
   require_once(__ROOT__ . '/language/lang.php');
+  require_once('../services/logging-service.php');
 
-  // LANGUAGE SET UP
+  // LANGUAGE SET UP 
   $lang = get_current_language();
   $lang_path = realpath(__ROOT__ . '/language/lang.' . $lang . '.php');
   require_once($lang_path);
@@ -78,7 +78,7 @@
     global $lang;
     global $language;
 
-    $logs = curl_request('http://52.233.133.56/api/logs?api-key=' . $GLOBALS['octave_api_key']);
+    $logs = getAllLogs();
 
     $mpdf = new \Mpdf\Mpdf();
 

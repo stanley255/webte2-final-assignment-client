@@ -91,6 +91,10 @@
   border-radius: 2px;
 }
 
+.input-range-label:disabled {
+  cursor: not-allowed;
+}
+
 .arrow-left {
   position: absolute;
   top: 50%;
