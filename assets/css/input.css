@@ -1,0 +1,120 @@
+.input-container {
+  position: relative;
+  margin-left: 1.5em;
+}
+
+.input {
+  opacity: 0.9;
+  border: none;
+  padding: 0.8em 2em;
+  border-radius: 4px;
+  color: var(--dark-blue);
+  background: rgb(209, 217, 225);
+  background: linear-gradient(
+    90deg,
+    rgba(209, 217, 225, 1) 0%,
+    rgba(226, 226, 224, 1) 100%
+  );
+  outline: none;
+  transition: opacity 0.1 ease-in-out;
+}
+
+.input:hover,
+.input:focus {
+  opacity: 1;
+}
+
+.input:disabled {
+  opacity: 0.4 !important;
+  cursor: not-allowed;
+}
+
+.input-with-icon {
+  padding-left: 3.5em;
+}
+
+.input-full {
+  width: 100%;
+}
+
+.input-range {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 6px;
+  background: var(--fine-blue);
+  outline: none;
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0.8em 0;
+}
+
+.input-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: var(--blue);
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+}
+
+.input-range::-moz-range-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: var(--blue);
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+}
+
+.input-range:hover {
+  opacity: 1;
+}
+
+.input-range-label {
+  outline: none;
+  display: inline-block;
+  max-width: 60px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.8em 1em;
+  color: var(--white);
+  background-color: var(--dark-blue);
+  border: none;
+  border-radius: 2px;
+}
+
+.input-range-label:disabled {
+  cursor: not-allowed;
+}
+
+.arrow-left {
+  position: absolute;
+  top: 50%;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--dark-blue);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+@media only screen and (max-width: 600px) {
+  .input {
+    padding: 0.8em 1em;
+  }
+
+  .input-range {
+    padding: 0;
+  }
+
+  .input-with-icon {
+    padding-left: 3em;
+  }
+}

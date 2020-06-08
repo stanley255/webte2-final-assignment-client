@@ -1,0 +1,113 @@
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.icon-mini {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-small {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-big {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-abs {
+  position: absolute;
+  top: 0;
+  margin: 0 1em;
+}
+
+.icon-rot-180 {
+  transform: rotate(180deg) !important;
+  transition: transform 0.3 ease-in-out;
+}
+
+.icon-opacity {
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.icon-opacity:hover {
+  opacity: 1;
+}
+
+.icon-hover {
+  transition: transform 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.icon-hover:hover {
+  transform: scale(1.05);
+}
+
+.icon-breath {
+  animation: breath 1.5s infinite;
+}
+
+.breath-delay {
+  animation-delay: 0.5s;
+}
+
+.icon-flag {
+  width: 30px;
+  height: 20px;
+}
+
+.icon-input {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+
+.icon-input-spinner {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.icon-menu {
+  width: 25px;
+  height: 25px;
+  display: none;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+
+.icon-menu:hover {
+  transform: scale(1.05);
+}
+
+.icon-git {
+  position: absolute;
+  top: calc(250px - 15px);
+  right: 1em;
+  transition: transform 0.6s ease-in-out;
+  z-index: 2;
+}
+
+.icon-git:hover {
+  transform: scale(1.15) rotate(360deg);
+}
+
+@keyframes breath {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.2em);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .icon-menu {
+    display: block;
+  }
+}

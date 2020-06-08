@@ -1,0 +1,28 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0.8em 1em;
+  border-radius: 4px;
+  background-color: var(--dark-blue);
+  color: var(--white);
+  outline: none;
+  font-weight: bold;
+  transition: background-color 0.1 ease-in-out;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  background-color: var(--blue);
+}
+
+.button:hover {
+  background-color: var(--blue);
+}
+
+.button-left-space {
+  margin-left: 1em;
+}

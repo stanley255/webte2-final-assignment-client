@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <g id="aisid" transform="translate(0 951)">
+    <rect id="Rectangle_16" data-name="Rectangle 16" width="512" height="512" rx="32" transform="translate(0 -951)" fill="#821135"/>
+    <path id="Rectangle_17" data-name="Rectangle 17" d="M0,0H224a32,32,0,0,1,32,32V480a32,32,0,0,1-32,32H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(256 -951)" fill="#6c0f2c"/>
+    <text id="AIS" transform="translate(45 -745)" fill="#fff" font-size="200" font-family="Quicksand"><tspan x="0" y="0">AIS</tspan></text>
+    <text id="ID" transform="translate(290 -512)" fill="#fff" font-size="190" font-family="Quicksand-Bold, Quicksand" font-weight="700"><tspan x="0" y="0">ID</tspan></text>
+  </g>
+</svg>

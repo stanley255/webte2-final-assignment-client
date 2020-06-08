@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 61">
+  <g id="Page-1" transform="translate(-114 -172)">
+    <g id="_137---Command-File" data-name="137---Command-File" transform="translate(114 172)">
+      <rect id="Rectangle-path" width="76" height="61" rx="4" fill="#123257"/>
+      <rect id="Rectangle-path-2" data-name="Rectangle-path" width="47" height="61" rx="1" transform="translate(68 7) rotate(90)" fill="#768ca5"/>
+      <g id="Group_15" data-name="Group 15" transform="translate(12.702 12.512)">
+        <path id="Shape" d="M25.253,49.019A2.252,2.252,0,0,1,23.9,44.965l6.606-4.955L23.9,35.054a2.252,2.252,0,1,1,2.7-3.6l9.01,6.757a2.252,2.252,0,0,1,0,3.6L26.6,48.569A2.239,2.239,0,0,1,25.253,49.019Z" transform="translate(-23 -31)" fill="#ecf0f1"/>
+        <path id="Shape-2" data-name="Shape" d="M38.01,41.5H31.252a2.252,2.252,0,1,1,0-4.5H38.01a2.252,2.252,0,1,1,0,4.5Z" transform="translate(-15.485 -23.485)" fill="#ecf0f1"/>
+      </g>
+    </g>
+  </g>
+</svg>

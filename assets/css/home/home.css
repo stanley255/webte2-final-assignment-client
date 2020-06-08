@@ -1,0 +1,113 @@
+.content-container {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2em;
+}
+
+.content-container:last-child {
+  margin: 0;
+}
+
+.content-title {
+  margin-bottom: 2em;
+}
+
+.content-title > h3 {
+  margin: 0 1em;
+  white-space: pre-wrap;
+}
+
+.command-line {
+  width: 100%;
+  height: 350px;
+  outline: none;
+  color: var(--white);
+  background-color: var(--dark-blue);
+  padding: 1.5em;
+  border: none;
+  border-radius: 4px;
+  overflow-y: auto;
+}
+
+.command-init-txt {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: var(--off-blue);
+}
+
+.line {
+  margin-bottom: 0.2em;
+  height: 20px;
+}
+
+.command-desc-txt {
+  display: inline-block;
+  height: 100%;
+}
+
+.command-content {
+  outline: none;
+  min-width: 120px;
+  height: 100%;
+}
+
+.stats-not-found {
+  justify-content: center;
+  font-weight: bold;
+  padding: 1em 0;
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 4px;
+}
+
+.stats-container {
+  margin: 2em auto 0 auto;
+  padding: 1em 0;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.legend-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.legend-list > li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.legend-list > li:last-child {
+  margin: 0;
+}
+
+.legend-list > li > div {
+  height: 20px !important;
+  width: 20px !important;
+  border-radius: 50%;
+  margin-right: 1.5em;
+}
+
+.legend-list > li > span {
+  font-weight: bold;
+}
+
+.stats-chart {
+  width: 500px;
+}
+
+@media only screen and (max-width: 900px) {
+  .content-title > h3 {
+    margin: 0 0.5em;
+  }
+
+  .stats-container {
+    flex-direction: column;
+  }
+
+  .legend-list {
+    margin-bottom: 2em;
+  }
+}
