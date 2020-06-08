@@ -37,12 +37,26 @@
   white-space: pre-wrap;
 }
 
+.checkbox-container {
+  margin-top: 2em;
+}
+
+.checkbox-desc {
+  margin: 0 1em;
+  font-size: 14px;
+  font-weight: bold;
+}
+
 .group-container {
   display: grid;
   grid-template-columns: calc(50% - 1em) calc(50% - 1em);
   column-gap: 2em;
   width: 100%;
   margin: 2em 0;
+}
+
+.one-item {
+  grid-template-columns: 100%;
 }
 
 .experiment {
@@ -78,5 +92,9 @@
     margin: 0 1em 1em 1em;
     padding: 1em;
     row-gap: 1em;
+  }
+
+  .checkbox-desc {
+    margin: 0 0.5em;
   }
 }

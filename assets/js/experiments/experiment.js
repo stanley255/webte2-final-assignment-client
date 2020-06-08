@@ -6,10 +6,17 @@ class Experiment {
   }
 
   loadObject(experimentName) {
-    $(`#experiment-visualization-${experimentName}`).load(this.path);
+    this.parentId = `#experiment-visualization-${experimentName}`;
+    $(this.parentId).load(this.path);
+  }
+
+  isHidden() {
+    return $(this.parentId).hasClass('hidden');
   }
 
   rotate(layer, angle, offsets) {
+    if (this.isHidden()) return;
+
     d3.select(layer).attr('transform', function () {
       const x1 =
         this.getBBox().x +
@@ -32,6 +39,8 @@ class Experiment {
   }
 
   move(layer, coords) {
+    if (this.isHidden()) return;
+
     d3.select(layer).attr(
       'transform',
       'translate(' + coords.x + ',' + coords.y + ')'

@@ -24,6 +24,8 @@
   $language['EXPERIMENT']['carShockAbsorber'] = 'Car shock absorber';
   $language['EXPERIMENT']['aircraftTilt'] = 'Aircraft pitch';
   $language['EXPERIMENT_SUBTITLE'] = 'Choose your value carefully ...';
+  $language['EXPERIMENT_CHECKBOX_GRAPH'] = 'Show graph';
+  $language['EXPERIMENT_CHECKBOX_SVG'] = 'Show experiment';
 
   //OCTAVE-API PAGE
   $language['OCTAVE_API_PAGE_TITLE'] = 'Octave API reference';

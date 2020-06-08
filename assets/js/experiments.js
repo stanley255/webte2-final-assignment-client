@@ -198,6 +198,34 @@ const initExperimentButtons = () => {
   });
 };
 
+const initExperimentCheckboxes = () => {
+  $('.checkbox').each(function () {
+    $(this).on('change', (e) => {
+      const status = $(e.target).prop('checked');
+      let globalStatus = true;
+      const targetId = $(e.target).val();
+      const parent = $(e.target).closest('.checkbox-container');
+
+      $(parent)
+        .find('input')
+        .each(function () {
+          globalStatus =
+            globalStatus === false ? false : $(this).prop('checked');
+        });
+
+      if (status) $(`#${targetId}`).removeClass('hidden');
+      else $(`#${targetId}`).addClass('hidden');
+
+      if (globalStatus)
+        $(`#parent-container-${getCurrentExperiment()}`).removeClass(
+          'one-item'
+        );
+      else
+        $(`#parent-container-${getCurrentExperiment()}`).addClass('one-item');
+    });
+  });
+};
+
 const initExperimentTimeout = () => {
   EXPERIMENT_TIMEOUT = $('#experiment-timeout').val() || 0;
 };
@@ -213,6 +241,7 @@ const initExperimentObjects = () => {
 
 initExperimentTimeout();
 initExperimentButtons();
+initExperimentCheckboxes();
 initExperimentObjects();
 initInputRanges();
 setCurrentExperiment(getCurrentExperiment());

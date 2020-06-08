@@ -144,7 +144,7 @@
                 <div class="card-section section-border">
                   <div class="container container-space item-container">
                     <img src="./assets/icons/experiment.svg" class="icon icon-small" />
-                    <span class="text-info text-bold"><?php echo $language['EXPERIMENT'][$value->experiment]; ?></span>
+                    <a class="text-info text-bold" href="<?php echo get_root_url() . DIRECTORY_SEPARATOR . 'experiments.php?init=' . $value->experiment; ?>"><?php echo $language['EXPERIMENT'][$value->experiment]; ?></a>
                   </div>
                 </div>
                 <div class="card-section">

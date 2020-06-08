@@ -3,12 +3,13 @@ import { getCookie } from './cookies.js';
 const OCTAVE_API_URL = 'https://wt43.fei.stuba.sk:4443/api';
 const CLIENT_API_URL = 'https://wt43.fei.stuba.sk:4443/client/api';
 
-export const ajaxRequest = async (type, url, data = {}) => {
+export const ajaxRequest = async (type, url, data = {}, timeout = 3000) => {
   return $.ajax({
     type,
     url,
     dataType: 'json',
     data,
+    timeout,
   });
 };
 

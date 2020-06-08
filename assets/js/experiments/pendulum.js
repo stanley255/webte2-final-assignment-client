@@ -35,6 +35,8 @@ class Pendulum extends Experiment {
   }
 
   setSegmentStep() {
+    if (super.isHidden()) return;
+
     const platform = d3.select(this.layers.platform).node();
     const width = platform.getBBox().width;
     this.segmentStep = width / 40;

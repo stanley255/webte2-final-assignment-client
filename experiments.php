@@ -153,8 +153,18 @@
                 <span class="arrow-left"></span>
               </div>
             </div>
-            <div class="group-container">
-              <div class="container graph-container">
+            <div class="container container-full container-space checkbox-container">
+              <div class="container">
+                <input checked type="checkbox" class="checkbox" name="graph" value="graph-container-<?php echo $value->name; ?>" id="graph-checkbox-<?php echo $value->name; ?>" />
+                <span class="checkbox-desc"><?php echo $language['EXPERIMENT_CHECKBOX_GRAPH'] ?></span>
+              </div>
+              <div class="container">
+                <span class="checkbox-desc"><?php echo $language['EXPERIMENT_CHECKBOX_SVG'] ?></span>
+                <input checked type="checkbox" class="checkbox" name="svg" value="experiment-visualization-<?php echo $value->name; ?>" id="svg-checkbox-<?php echo $value->name; ?>" />
+              </div>
+            </div>
+            <div id="parent-container-<?php echo $value->name; ?>" class="group-container">
+              <div id="graph-container-<?php echo $value->name; ?>" class="container graph-container">
                <canvas id="line-chart-<?php echo $value->name; ?>" width="800" height="450"></canvas>
               </div>
               <div id="experiment-visualization-<?php echo $value->name; ?>" class="container experiment"></div>

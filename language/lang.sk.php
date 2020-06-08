@@ -24,6 +24,8 @@
   $language['EXPERIMENT']['carShockAbsorber'] = 'Tlmič kolesa';
   $language['EXPERIMENT']['aircraftTilt'] = 'Náklon lietadla';
   $language['EXPERIMENT_SUBTITLE'] = 'Zvoľ si svoju hodnotu zodpovedne ...';
+  $language['EXPERIMENT_CHECKBOX_GRAPH'] = 'Zobraz graf';
+  $language['EXPERIMENT_CHECKBOX_SVG'] = 'Zobraz experiment';
 
   //OCTAVE-API PAGE
   $language['OCTAVE_API_PAGE_TITLE'] = 'Octave API referencia';
